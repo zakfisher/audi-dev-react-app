@@ -1,31 +1,30 @@
+# Audi Developers React App
+A knowledge-sharing and collaborative development environment created for Audi devs.
+View online at <https://audi-fe-notes.firebaseapp.com>.
+
 ![](https://travis-ci.org/zakfisher/audi-dev-react-app.svg?branch=master)
 
-# Audi Developers React App
-
-A knowledge-sharing and collaborative development environment created for Audi devs.
 > This app is forked from [Create React App](https://github.com/facebookincubator/create-react-app)
 
 #### Getting started
 
 `git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
-`cd audi-dev-react-app`
+`cd audi-dev-react-app && npm i`
 
-`npm install`
+#### Run Locally
 
-`npm start`
+Run `npm start` to start webpack dev server.
 
-Local instance is at <http://localhost:3000>
+Local instance is at <http://localhost:3000>.
 
-Hosted instance is at <https://audi-fe-notes.firebaseapp.com>
-
-To contribute to the development of this app, submit PRs or Issues.
-
-Contact [Zak Fisher](https://github.com/zakfisher) if you have questions.
+Run `npm test` in a separate terminal window to watch/run unit tests.
 
 #### Documentation
 
-Run `npm run docs` then go to <http://localhost:5000> to view component documentation.
+Generate and serve docs with `npm run docs`.
+
+View docs at <http://localhost:5000>.
 
 #### Technologies
 
@@ -35,3 +34,9 @@ Run `npm run docs` then go to <http://localhost:5000> to view component document
 * Webpack
 * Firebase
 * SASS
+
+#### Contribute
+
+To contribute to the development of this app, submit PRs or Issues.
+
+Contact [Zak Fisher](mailto:zachary.fisher@akqa.com) if you have questions.
