@@ -5,8 +5,6 @@ const cors = require('cors')({ origin: true });
 const PASSWORD = sha1(functions.config().app.password);
 const FIREBASE = functions.config().firebase;
 
-console.log('PASSWORD', PASSWORD);
-
 // Connect to firebase
 admin.initializeApp(FIREBASE);
 
