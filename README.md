@@ -7,13 +7,13 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 > This app is forked from [Create React App](https://github.com/facebookincubator/create-react-app)
 
-#### Getting started
+## Getting started
 
 `git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
 `cd audi-dev-react-app && npm i`
 
-#### Run Locally
+## Run Locally
 
 Run `npm start` to start webpack dev server.
 
@@ -21,13 +21,13 @@ Local instance is at <http://localhost:3000>.
 
 Run `npm test` in a separate terminal window to watch/run unit tests.
 
-#### Documentation
+## Documentation
 
 Generate and serve docs with `npm run docs`.
 
 View docs at <http://localhost:5000>.
 
-#### Technologies
+## Technologies
 
 * React
 * React-router
@@ -36,7 +36,7 @@ View docs at <http://localhost:5000>.
 * Firebase
 * SASS
 
-#### Contribute
+## Contribute
 
 To contribute to the development of this app, submit PRs or Issues.
 
