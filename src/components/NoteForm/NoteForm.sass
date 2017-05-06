@@ -1,0 +1,24 @@
+@import '../../styles/core'
+
+.NoteForm
+  textarea
+    font-size: 1.4rem
+    line-height: 2rem
+    +monospace
+    &::placeholder
+      line-height: 2rem
+
+  .submit
+    margin-right: 1rem
+
+  .delete
+    position: absolute
+    right: 0
+    bottom: 1rem
+
+    a
+      font-size: 1.4rem
+      color: $red
+      float: right
+      cursor: pointer
+      +bold

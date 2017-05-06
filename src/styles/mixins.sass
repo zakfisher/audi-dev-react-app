@@ -1,0 +1,28 @@
+=default-font
+  font-family: 'din-2014', sans-serif
+  font-weight: 200
+
+=monospace
+  font-family: 'ubuntu-mono'
+  font-weight: 400
+
+=bold
+  font-weight: 300
+
+=breakpoint($prefix)
+  @each $bp in $breakpoints
+    @if $prefix == nth($bp, 1)
+      @media all and (min-width: nth($bp, 2))
+        @content
+
+=columns($bp)
+  $i: 1
+  $prefix: nth($bp, 1)
+  @while $i <= $column-count
+    &.#{$prefix}-#{$i}
+      width: $column-width * $i
+
+    $i: $i + 1
+
+  &.#{$prefix}-20
+    width: 20%

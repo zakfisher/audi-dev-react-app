@@ -1,0 +1,36 @@
+@import 'core'
+
+.wrap
+  max-width: $max-width
+  margin: 0 auto
+  width: 100%
+
+.row
+  display: flex
+  flex-flow: wrap
+  width: 100%
+  & > [class*="col-"]
+    @each $bp in $breakpoints
+      +breakpoint(nth($bp, 1))
+        +columns($bp)
+
+@if $debug == true
+  html
+    &:before
+      border: 1px solid #333
+      border-radius: 4px
+      position: fixed
+      z-index: 5000
+      color: yellow
+      +bold
+      background: black
+      font-size: 12px
+      bottom: 10px
+      left: 10px
+      padding: 5px 10px
+
+      @each $bp in $breakpoints
+        $prefix: nth($bp, 1)
+        $minWidth: nth($bp, 2)
+        +breakpoint($prefix)
+          content: '#{$prefix} (#{$minWidth})'

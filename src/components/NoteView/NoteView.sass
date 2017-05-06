@@ -1,0 +1,91 @@
+@import '../../styles/core'
+
+.NoteView
+  margin: 1.5rem
+  margin-bottom: 0
+
+  .links
+    margin-bottom: 1.5rem
+    overflow: auto
+
+    .Button
+      float: left
+
+  .updated
+    overflow: auto
+    padding: 0
+    margin: 0
+    display: flex
+    align-items: center
+    height: 100%
+    position: absolute
+    left: 14rem
+
+    p
+      +bold
+      font-size: 1.4rem
+      font-style: italic
+      color: $dark-gray
+      float: right
+
+  .content,
+  .title
+    background: white
+    padding: 1.5rem
+
+  .content,
+  .author,
+  .editor
+    margin-bottom: 1.5rem
+
+  .title
+    padding-bottom: 0
+
+    h1
+      +bold
+      font-size: 3rem
+      color: $black
+      padding-bottom: 1.5rem
+      border-bottom: 0.5rem solid $light-gray
+      width: 100%
+
+  .author,
+  .editor
+    +breakpoint(tab)
+      &:first-child
+        padding-right: 0.75rem
+      &:last-child
+        padding-left: 0.75rem
+
+  .user
+    background: white
+    padding: 1.5rem
+    height: 10rem
+    display: flex
+    align-items: center
+
+    img
+      height: 90%
+      width: auto
+      border-radius: 100%
+      margin-right: 1rem
+
+    .info
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+      h2
+        font-size: 1.8rem
+        +bold
+
+      p
+        color: $dark-gray
+        font-size: 1.2rem
+        +bold
+
+      +breakpoint(tab)
+        h2
+          font-size: 2rem
+        p
+          font-size: 1.4rem

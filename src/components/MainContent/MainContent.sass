@@ -1,0 +1,27 @@
+@import '../../styles/core'
+
+.MainContent
+  position: relative
+
+  .actions
+    position: fixed
+    bottom: 1.5rem
+    right: 1.5rem
+    z-index: 10
+    width: 100%
+    pointer-events: none
+
+    +breakpoint(tab)
+      background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(238,238,238,0) 100%)
+      padding: 1.5rem
+      top: $nav-height
+      bottom: auto
+      right: auto
+      left: auto
+
+    .Button
+      pointer-events: all
+      float: right
+
+      +breakpoint(tab)
+        float: left

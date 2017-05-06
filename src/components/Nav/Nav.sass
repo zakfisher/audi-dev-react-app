@@ -1,0 +1,148 @@
+@import '../../styles/core'
+
+$nav-dropdown-width: 5rem
+
+=nav-link
+  transition: all 300ms ease
+  font-size: 1.4rem
+  line-height: $nav-secondary-bar-height
+  text-transform: uppercase
+  text-align: center
+  +bold
+  &:hover, &.active
+    background: $primary-color
+  &.active
+    color: black
+
+.Nav
+  position: relative
+  z-index: 100
+  height: $nav-height
+  width: 100%
+
+  a
+    position: relative
+    display: block
+    height: 100%
+    cursor: pointer
+    *
+      cursor: pointer
+
+.Nav .primary-nav
+  position: fixed
+  background: black
+  top: 0
+  height: $nav-primary-bar-height
+  width: 100%
+  z-index: 2
+
+  .rings
+    background: white
+    height: 100%
+    width: 10rem
+    padding: 0 1rem
+    float: left
+    z-index: 10
+
+    .audiRingsSVG
+      position: absolute
+      margin: auto
+      height: 45%
+      width: 75%
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
+
+      svg
+
+  h1
+    color: white
+    float: left
+    font-size: 3rem
+    line-height: $nav-primary-bar-height
+    padding-left: 1.5rem
+    display: none
+
+    +breakpoint(tab)
+      display: block
+
+  .user
+    position: absolute
+    height: 100%
+    right: $nav-dropdown-width + 0.5rem
+    display: flex
+    align-items: center
+
+    p
+      text-transform: uppercase
+      color: white
+      font-size: 1.6rem
+      padding-right: 1rem
+
+    img
+      height: 80%
+      width: auto
+      border-radius: 100%
+
+  .dropdown
+    transition: background 300ms ease
+    position: absolute
+    top: 0
+    right: 0
+    width: $nav-dropdown-width
+    background: transparent
+    height: 100%
+    z-index: 10
+
+    &:hover,
+    &.open
+      background: white
+      .caretSVG
+        svg *
+          fill: black
+      .menu
+        opacity: 1
+        pointer-events: all
+
+    .caretSVG
+      position: absolute
+      margin: auto
+      height: 22%
+      width: 25%
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
+
+      svg *
+        transition: fill 300ms ease
+        fill: white
+
+    .menu
+      transition: opacity 300ms ease
+      opacity: 0
+      pointer-events: none
+      position: absolute
+      top: 100%
+      right: 0
+      height: auto
+      width: 10rem
+      background: white
+
+      a
+        +nav-link
+
+.Nav .secondary-nav
+  position: fixed
+  background: $black
+  top: $nav-primary-bar-height
+  height: $nav-secondary-bar-height
+  width: 100%
+  z-index: 1
+
+  a
+    +nav-link
+    color: white
+    float: left
+    padding: 0 1.5rem

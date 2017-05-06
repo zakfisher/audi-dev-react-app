@@ -1,0 +1,85 @@
+@import '../../styles/core'
+
+form
+  height: auto
+  position: relative
+
+  > .success,
+  > .error
+    background-color: transparent
+    font-size: 1.25rem
+    margin: 0 auto
+    +bold
+
+  > .success
+    color: $green
+
+  > .error
+    color: $red
+
+fieldset
+  padding: 0 0 1.25rem 0
+
+  .success,
+  .error
+    display: block
+    padding: 0.5rem 0
+    font-size: 1rem
+    color: white;
+    text-align: center
+
+  .success
+    background-color: $green
+
+  .error
+    background-color: $red
+
+  &:first-of-type
+    padding-top: 0
+
+label
+  font-size: 1.2rem
+  font-style: italic
+  color: $dark-gray
+  margin-bottom: 1rem
+  display: block
+
+input:not([type="file"]),
+textarea
+  background: $light-gray
+  transition: all 300ms ease
+  border-radius: 0
+  width: 100%
+  padding: 1rem
+  margin: 0
+  font-size: 2rem
+  line-height: 1.8rem
+  border: 0.1rem solid $light-gray
+  color: $dark-gray
+  +bold
+
+  &:focus, &:hover
+    border: 0.1rem solid $gray
+
+  &:focus
+    background: $black
+    color: $primary-color
+
+  &::placeholder
+    color: $gray
+    +default-font
+    line-height: 2.5rem
+
+input[type="password"]
+  letter-spacing: 0.5rem
+
+  &::placeholder
+    letter-spacing: 0
+
+textarea
+  height: 30rem
+  resize: none
+
+  + .success,
+  + .error
+    margin-top: -0.25rem

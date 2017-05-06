@@ -1,0 +1,79 @@
+@import '../../styles/core'
+
+$note-item-height: 10rem
+
+.NoteItem
+  height: $note-item-height
+  margin-bottom: 1.5rem
+
+  &:last-child
+    margin-bottom: 0
+
+  +breakpoint(lap)
+    &:nth-child(odd)
+      padding-right: 0.75rem
+    &:nth-child(even)
+      padding-left: 0.75rem
+
+  +breakpoint(desk)
+    &:nth-child(odd)
+      padding-right: 0
+    &:nth-child(even)
+      padding-left: 0
+    &:nth-child(3n)
+      padding-left: 0.75rem
+    &:nth-child(3n + 1)
+      padding-right: 0.75rem
+    &:nth-child(3n + 2)
+      padding-right: 0.75rem
+      padding-left: 0.75rem
+
+  a
+    background: rgba(255,255,255,0.65)
+    border: 0.1rem solid transparent
+    padding: 1rem
+    display: flex
+    overflow: auto
+    height: 100%
+    width: 100%
+    align-items: center
+    transition: all 300ms ease
+
+    &:hover
+      border: 0.1rem solid $gray
+      background: white
+
+  img
+    height: 90%
+    width: auto
+    border-radius: 100%
+
+  .note-info
+    position: absolute
+    left: 9rem
+    right: 1rem
+    top: 0
+    display: flex
+    height: 100%
+    align-items: flex-start
+    flex-direction: column
+    justify-content: center
+
+    h2, p
+      transition: background 300ms ease
+
+    h2
+      font-size: 1.8rem
+      line-height: 2.25rem
+      +bold
+
+    p
+      color: $dark-gray
+      font-size: 1.2rem
+      margin-top: 0.5rem
+
+    +breakpoint(tab)
+      h2
+        font-size: 2rem
+      p
+        font-size: 1.4rem

@@ -1,0 +1,38 @@
+@import '../../styles/core'
+
+.Sidebar
+  background: white
+  height: auto
+  width: 100%
+  overflow: scroll
+  position: relative;
+
+  p
+    font-size: 1.2rem
+    font-style: italic
+    color: $dark-gray
+    margin-bottom: 1rem
+    +bold
+
+  .fixed-search
+    height: 10.5rem
+    > div
+      background: white
+      padding: 1.5rem
+      position: fixed
+      width: 100%
+      z-index: 10
+      +breakpoint(tab)
+        width: $sidebar-width
+
+  +breakpoint(tab)
+    position: fixed
+    z-index: 10
+    top: $nav-height
+    left: 0
+    bottom: 0
+    width: $sidebar-width
+
+    + .MainContent
+      margin-left: $sidebar-width
+      width: calc(100% - 32rem)

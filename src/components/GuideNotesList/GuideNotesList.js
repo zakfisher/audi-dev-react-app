@@ -1,0 +1,36 @@
+import React, { Component } from 'react';
+import Notes from '../../helpers/notes';
+import GuideNoteItem from '../GuideNoteItem/GuideNoteItem';
+import './GuideNotesList.sass';
+
+class GuideNotesList extends Component {
+
+  get notes() {
+    const { dataReady, user, users, notes, searchQuery, match } = this.props;
+    const { noteId } = match.params;
+    this.state = { activeNoteId: noteId };
+    if (!dataReady || !user) return null;
+
+    // Filter notes by query
+    const filteredNotes = Notes.filterNotesByQuery(notes, searchQuery);
+
+    // Sort notes by most recent first
+    return Object.keys(filteredNotes)
+      .sort((a, b) => notes[b].timestamp - notes[a].timestamp)
+      .map(noteId => {
+        const props = { dataReady, noteId, user, users, notes };
+        return <GuideNoteItem key={noteId} active={this.state.activeNoteId === noteId} {...props} />;
+      });
+  }
+
+  componentDidMount() {
+    const activeNoteId = this.props.match.params.noteId;
+    this.setState({ activeNoteId });
+  }
+
+  render() {
+    return <section className="GuideNotesList">{this.notes}</section>;
+  }
+}
+
+export default GuideNotesList;
