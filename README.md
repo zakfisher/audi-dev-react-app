@@ -1,26 +1,27 @@
-### Audi Front-end Notes
+![](https://travis-ci.org/zakfisher/audi-dev-react-app.svg?branch=master)
 
-#### Overview
+# Audi Developers React App
 
-This app is intended for the front-end team to add and search for notes that are useful for onboarding and troubleshooting.
+A knowledge-sharing and collaborative development environment created for Audi devs.
+> This app is forked from [Create React App](https://github.com/facebookincubator/create-react-app)
 
 #### Getting started
 
-Clone repo, install node modules, and start app:
+`git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
-`git clone https://github.com/SuperFantastic/audi-fe-notes.git`
+`cd audi-dev-react-app`
 
 `npm install`
 
 `npm start`
 
-View on `localhost:3000/notes`
+Local instance is at <http://localhost:3000>
 
-The hosted app is here : https://audi-fe-notes.firebaseapp.com/notes
+Hosted instance is at <https://audi-fe-notes.firebaseapp.com>
 
 To contribute to the development of this app, submit PRs or Issues.
 
-To get access to the database hosted on Firebase, contact [Zak Fisher](https://github.com/zakfisher).
+Contact [Zak Fisher](https://github.com/zakfisher) if you have questions.
 
 #### Technologies
 
@@ -30,5 +31,3 @@ To get access to the database hosted on Firebase, contact [Zak Fisher](https://g
 * Webpack
 * Firebase
 * SASS
-
-This app is based off the boilerplate create-react app. [Click here to see the README](./create-react-readme.md)
