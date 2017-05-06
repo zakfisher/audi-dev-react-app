@@ -10,6 +10,9 @@
     "deploy": "npm run build && firebase deploy",
     "migrate": "node scripts/migrate.js",
     "build:components": "NODE_ENV=production webpack --config config/webpack.config.components.js",
+    "docs": "npm run build:docs && npm run serve:docs",
+    "build:docs": "NODE_ENV=production documentation build src/audi/components/index.js -f html -o src/audi/docs",
+    "serve:docs": "serve src/audi/docs",
     "start:offline": "OFFLINE=true node scripts/start.js",
     "storage:server": "serve storage -p 1234"
   },
@@ -18,6 +21,7 @@
     "npm": "^3.10.x"
   },
   "dependencies": {
+    "documentation": "^4.0.0-rc.1",
     "firebase": "^3.9.0",
     "history": "^4.6.1",
     "html-loader": "^0.4.5",
@@ -34,6 +38,7 @@
     "redux": "^3.6.0",
     "rx-dom": "^7.0.3",
     "sass-loader": "^6.0.3",
+    "serve": "^5.1.4",
     "sha1": "^1.1.1"
   },
   "devDependencies": {

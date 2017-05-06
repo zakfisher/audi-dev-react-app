@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
-import './ComponentsPage.sass';
-import COMPONENTS from '../../audi/components';
+import './DemosPage.sass';
+import DEMOS from '../../demos';
 
-class ComponentsPage extends Component {
+class DemosPage extends Component {
   redirect() {
     const { dataReady, user, history } = this.props;
     if (!dataReady) return;
@@ -24,11 +24,11 @@ class ComponentsPage extends Component {
 
     if (this.props.user) {
       markup = (
-        <main className="ComponentsPage">
+        <main className="DemosPage">
           <ul>
-            {Object.keys(COMPONENTS).map((componentId, i) => (
+            {Object.keys(DEMOS).map((demoId, i) => (
               <li key={i}>
-                <Link to={`/component/${componentId}`}>{componentId}</Link>
+                <Link to={`/demo/${demoId}`}>{demoId}</Link>
               </li>
             ))}
           </ul>
@@ -40,4 +40,4 @@ class ComponentsPage extends Component {
   }
 }
 
-export default ComponentsPage;
+export default DemosPage;

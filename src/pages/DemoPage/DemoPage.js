@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
-import './ComponentsPage.sass';
-import COMPONENTS from '../../audi/components';
+import './DemoPage.sass';
+import DEMOS from '../../demos';
 
-class ComponentsPage extends Component {
+class DemoPage extends Component {
   redirect() {
     const { dataReady, user, history } = this.props;
     if (!dataReady) return;
@@ -19,19 +18,19 @@ class ComponentsPage extends Component {
     this.redirect();
   }
 
+  get demo() {
+    const { demoId } = this.props.match.params;
+    const DemoComponent = DEMOS[demoId] || null;
+    return DemoComponent ? <DemoComponent /> : 'No demo found';
+  }
+
   render() {
     let markup = <Loader />;
 
     if (this.props.user) {
       markup = (
-        <main className="ComponentsPage">
-          <ul>
-            {Object.keys(COMPONENTS).map((componentId, i) => (
-              <li key={i}>
-                <Link to={`/component/${componentId}`}>{componentId}</Link>
-              </li>
-            ))}
-          </ul>
+        <main className="DemoPage">
+          {this.demo}
         </main>
       );
     }
@@ -40,4 +39,4 @@ class ComponentsPage extends Component {
   }
 }
 
-export default ComponentsPage;
+export default DemoPage;

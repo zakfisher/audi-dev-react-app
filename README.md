@@ -23,6 +23,10 @@ To contribute to the development of this app, submit PRs or Issues.
 
 Contact [Zak Fisher](https://github.com/zakfisher) if you have questions.
 
+#### Documentation
+
+Run `npm run docs` then go to <http://localhost:5000> to view component documentation.
+
 #### Technologies
 
 * React
