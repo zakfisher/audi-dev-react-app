@@ -1,8 +1,9 @@
+![](https://travis-ci.org/zakfisher/audi-dev-react-app.svg?branch=master)
+
 # Audi Developers React App
 A knowledge-sharing and collaborative development environment created for Audi devs.
-View online at <https://audi-fe-notes.firebaseapp.com>.
 
-![](https://travis-ci.org/zakfisher/audi-dev-react-app.svg?branch=master)
+View online [here](https://audi-fe-notes.firebaseapp.com).
 
 > This app is forked from [Create React App](https://github.com/facebookincubator/create-react-app)
 
