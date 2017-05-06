@@ -14,8 +14,8 @@
     "storage:server": "serve storage -p 1234"
   },
   "engines": {
-    "node": "6.10.2",
-    "npm": "3.10.10"
+    "node": "^6.10.x",
+    "npm": "^3.10.x"
   },
   "dependencies": {
     "firebase": "^3.9.0",
