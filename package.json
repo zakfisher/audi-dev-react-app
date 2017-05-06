@@ -13,6 +13,10 @@
     "start:offline": "OFFLINE=true node scripts/start.js",
     "storage:server": "serve storage -p 1234"
   },
+  "engines": {
+    "node": "6.10.2",
+    "npm": "3.10.10"
+  },
   "dependencies": {
     "firebase": "^3.9.0",
     "history": "^4.6.1",
