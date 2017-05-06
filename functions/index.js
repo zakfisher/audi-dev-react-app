@@ -9,7 +9,7 @@ admin.initializeApp(functions.config().firebase);
 // Start writing Firebase Functions
 // https://firebase.google.com/functions/write-firebase-functions
 
-const PASSWORD = sha1('audi');
+const PASSWORD = sha1('yup');
 
 const validatePOST = (POST, keys) => {
   let error = null;
