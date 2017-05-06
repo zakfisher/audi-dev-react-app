@@ -1,5 +1,5 @@
 import React from 'react';
-import Text from '../audi/components/Text/Text';
+import Text from '../components/Text/Text';
 
 const TextComponentDemo = () => (
   <section className="TextComponentDemo">

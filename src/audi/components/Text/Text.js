@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './Text.sass';
 
 /**
+Text Component
+---
 ##### Default Props
 ```
 children: 'hello world'

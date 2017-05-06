@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import './DemosPage.sass';
-import DEMOS from '../../demos';
+import DEMOS from '../../audi/demos';
 
 class DemosPage extends Component {
   redirect() {

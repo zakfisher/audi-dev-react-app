@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
 import './DemoPage.sass';
-import DEMOS from '../../demos';
+import DEMOS from '../../audi/demos';
 
 class DemoPage extends Component {
   redirect() {
