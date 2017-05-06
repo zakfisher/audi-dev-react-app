@@ -9,7 +9,6 @@ import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
 import NotesPage from './pages/NotesPage/NotesPage';
 import NotePage from './pages/NotePage/NotePage';
 import GuidePage from './pages/GuidePage/GuidePage';
-import MissingPage from './pages/MissingPage/MissingPage';
 
 const routes = [{
   component: App,
@@ -50,10 +49,6 @@ const routes = [{
     {
       path: '/onboarding/:noteId',
       component: GuidePage
-    },
-    {
-      path: '/404',
-      component: MissingPage
     }
   ]
 }];

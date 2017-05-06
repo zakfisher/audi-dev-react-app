@@ -2,7 +2,6 @@ import React from 'react';
 // import './MissingPage.sass';
 
 const MissingPage = props => {
-  console.log('missing', props);
   return (
     <section className="MissingPage">
       <h1>404</h1>
