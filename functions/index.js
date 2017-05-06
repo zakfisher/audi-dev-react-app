@@ -2,14 +2,13 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const sha1 = require('sha1');
 const cors = require('cors')({ origin: true });
+const PASSWORD = sha1(functions.config().app.password);
+const FIREBASE = functions.config().firebase;
+
+console.log('PASSWORD', PASSWORD);
 
 // Connect to firebase
-admin.initializeApp(functions.config().firebase);
-
-// Start writing Firebase Functions
-// https://firebase.google.com/functions/write-firebase-functions
-
-const PASSWORD = sha1('0feca720e2c29dafb2c900713ba560e03b758711');
+admin.initializeApp(FIREBASE);
 
 const validatePOST = (POST, keys) => {
   let error = null;

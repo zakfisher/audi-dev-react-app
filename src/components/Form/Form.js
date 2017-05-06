@@ -50,7 +50,7 @@ class Form extends Component {
         return;
       }
       if (name) {
-        POST[name] = encrypt ? sha1(sha1(value)) : value;
+        POST[name] = encrypt ? sha1(value) : value;
       }
     });
 
