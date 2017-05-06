@@ -2,6 +2,17 @@
   "name": "test",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "postinstall": "cd functions && npm i",
+    "deploy": "npm run build && firebase deploy",
+    "migrate": "node scripts/migrate.js",
+    "build:components": "NODE_ENV=production webpack --config config/webpack.config.components.js",
+    "start:offline": "OFFLINE=true node scripts/start.js",
+    "storage:server": "serve storage -p 1234"
+  },
   "dependencies": {
     "firebase": "^3.9.0",
     "history": "^4.6.1",
@@ -60,11 +71,6 @@
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
