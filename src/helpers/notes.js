@@ -35,22 +35,31 @@ Notes.cancel = () => {
   );
 };
 
-Notes.filterNotesByQuery = (notes, query) => {
-  // prevent unneccessary filtering when there is not search query
-  if (query.length === 0) {
-    return notes;
-  }
+Notes.getNotesByQuery = (users, notes, query) => {
+  let filteredNotes = {...notes};
+  let sortedNotes = [];
 
-  let filteredNotes = {};
-  Rx.Observable.from(Object.keys(notes))
+  // Filter notes by query (only if query exists)
+  if (query.length > 0) {
+    filteredNotes = {};
+    Rx.Observable.from(Object.keys(notes))
     .map(noteId => ({ noteId, ...notes[noteId] }))
     .filter(item => {
       let matchFound = false;
+
+      // Search by title or content
       ['title', 'content'].forEach(prop => {
         if (matchFound) return;
-        if (item[prop])
+        if (item[prop]) {
           matchFound = item[prop].toString().toLowerCase().indexOf(query.toLowerCase()) > -1;
+        }
       });
+
+      // Search by author
+      if (users[item.author].displayName.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+        matchFound = true;
+      }
+
       return matchFound;
     })
     .subscribe(
@@ -59,8 +68,14 @@ Notes.filterNotesByQuery = (notes, query) => {
         filteredNotes[noteId] = notes[noteId]
       }
     );
+  }
 
-  return filteredNotes;
+  // Sort by timestamp
+  Object.keys(filteredNotes)
+  .sort((a, b) => filteredNotes[b].timestamp - filteredNotes[a].timestamp)
+  .map(item => sortedNotes.push(item));
+
+  return sortedNotes;
 };
 
 export default Notes;

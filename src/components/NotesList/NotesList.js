@@ -10,15 +10,12 @@ class NotesList extends Component {
     if (!dataReady || !user) return null;
 
     // Filter notes by query
-    const filteredNotes = Notes.filterNotesByQuery(notes, searchQuery);
+    const filteredNotes = Notes.getNotesByQuery(users, notes, searchQuery);
 
-    // Sort notes by most recent first
-    return Object.keys(filteredNotes)
-      .sort((a, b) => notes[b].timestamp - notes[a].timestamp)
-      .map(noteId => {
-        const props = { dataReady, noteId, user, users, notes };
-        return <NoteItem key={noteId} {...props} />;
-      });
+    return filteredNotes.map(noteId => {
+      const props = { dataReady, noteId, user, users, notes };
+      return <NoteItem key={noteId} {...props} />;
+    });
   }
 
   render() {

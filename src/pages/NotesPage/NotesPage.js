@@ -33,7 +33,7 @@ class NotesPage extends Component {
           <Sidebar>
             <div className='fixed-search'>
               <div>
-                <p>Search by title or content.</p>
+                <p>Search by title, content, or author.</p>
                 <Searchbar {...this.props} />
               </div>
             </div>
