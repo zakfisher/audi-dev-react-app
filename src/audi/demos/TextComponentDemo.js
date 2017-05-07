@@ -2,7 +2,7 @@ import React from 'react';
 import Text from '../components/Text/Text';
 
 const TextComponentDemo = () => (
-  <section className="TextComponentDemo">
+  <section className="TextComponentDemo" onClick={() => console.log('real component')}>
     <Text small>
       Small Text
     </Text>

@@ -22,8 +22,8 @@ class AEMPreview extends Component {
 
         <!-- Styles -->
         <style type="text/css">${this.css}</style>
+
         <!--
-        <link href="/path/to/compiled/core.css" rel="stylesheet"></link>
         <link href="/path/to/compiled/component.css" rel="stylesheet"></link>
         -->
 
@@ -36,17 +36,14 @@ class AEMPreview extends Component {
 
     const body = `
       <body>
-        <div id="root">${this.component}</div>
-
-        <!--
+        <div id="root">${this.serverComponent}</div>
         <script type="text/babel">
-          const Component = ${this.IframeComponent};
+          const Component = ${this.component};
           ReactDOM.render(
             <Component />,
             document.getElementById('root')
           );
         </script>
-        -->
       </body>
     `;
 
@@ -70,9 +67,12 @@ class AEMPreview extends Component {
 
   get component() {
     const { componentId } = this.props;
-    const IframeComponent = this.IframeComponent = IFRAME_COMPONENTS[componentId] || null;
-    return ReactDOMServer.renderToString(
-      IframeComponent ? <IframeComponent /> : <h3>Component not found.</h3>
+    return IFRAME_COMPONENTS[componentId] || null;
+  }
+
+  get serverComponent() {
+    return ReactDOMServer.renderToStaticMarkup(
+      this.component ? <this.component /> : <h3>Component not found.</h3>
     );
   }
 
