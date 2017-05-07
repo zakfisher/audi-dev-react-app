@@ -18,6 +18,7 @@ const TextComponentDemo = () => (
     <Text huge>
       Huge Text
     </Text>
+    <br/>
     <Text crazy>
       Crazy Text
     </Text>

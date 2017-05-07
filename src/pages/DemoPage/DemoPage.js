@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
+import AEMPreview from '../../components/AEMPreview/AEMPreview';
 import './DemoPage.sass';
-import DEMOS from '../../audi/demos';
 
 class DemoPage extends Component {
   redirect() {
@@ -18,21 +18,12 @@ class DemoPage extends Component {
     this.redirect();
   }
 
-  get demo() {
-    const { demoId } = this.props.match.params;
-    const DemoComponent = DEMOS[demoId] || null;
-    return DemoComponent ? <DemoComponent /> : 'No demo found';
-  }
-
   render() {
     let markup = <Loader />;
 
     if (this.props.user) {
-      markup = (
-        <main className="DemoPage">
-          {this.demo}
-        </main>
-      );
+      const { demoId } = this.props.match.params;
+      markup = <AEMPreview name='DemoPage' componentId={demoId} />;
     }
 
     return markup;

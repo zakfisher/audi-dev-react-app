@@ -1,0 +1,20 @@
+@import '../../styles/core'
+
+.AEMPreview
+  background: white
+  position: relative
+
+  .control-bar
+    background: $dark-gray
+    color: white
+    height: 3rem
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 1.5rem
+    +bold
+
+  iframe
+    position: absolute
+    height: calc(100% - 3rem)
+    width: 100%

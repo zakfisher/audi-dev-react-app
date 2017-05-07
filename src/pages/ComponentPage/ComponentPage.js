@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
+import AEMPreview from '../../components/AEMPreview/AEMPreview';
 import './ComponentPage.sass';
-import COMPONENTS from '../../audi/components';
 
 class ComponentPage extends Component {
   redirect() {
@@ -18,21 +18,12 @@ class ComponentPage extends Component {
     this.redirect();
   }
 
-  get component() {
-    const { componentId } = this.props.match.params;
-    const ComponentExample = COMPONENTS[componentId] || null;
-    return ComponentExample ? <ComponentExample /> : 'No component found';
-  }
-
   render() {
     let markup = <Loader />;
 
     if (this.props.user) {
-      markup = (
-        <main className="ComponentPage">
-          {this.component}
-        </main>
-      );
+      const { componentId } = this.props.match.params;
+      markup = <AEMPreview name='ComponentPage' componentId={componentId} />;
     }
 
     return markup;

@@ -20,6 +20,9 @@ $nav-dropdown-width: 5rem
   height: $nav-height
   width: 100%
 
+  &.hidden
+    display: none
+
   a
     position: relative
     display: block
@@ -59,13 +62,16 @@ $nav-dropdown-width: 5rem
   h1
     color: white
     float: left
-    font-size: 3rem
     line-height: $nav-primary-bar-height
     padding-left: 1.5rem
     display: none
 
-    +breakpoint(tab)
+    +breakpoint(mob-m)
       display: block
+      font-size: 2.2rem
+
+    +breakpoint(tab)
+      font-size: 3rem
 
   .user
     position: absolute
@@ -79,6 +85,10 @@ $nav-dropdown-width: 5rem
       color: white
       font-size: 1.6rem
       padding-right: 1rem
+      display: none
+
+      +breakpoint(tab)
+        display: block
 
     img
       height: 80%
