@@ -21,6 +21,7 @@
     "npm": "^3.10.x"
   },
   "dependencies": {
+    "css-reset": "^0.0.1",
     "documentation": "^4.0.0-rc.1",
     "firebase": "^3.9.0",
     "history": "^4.6.1",

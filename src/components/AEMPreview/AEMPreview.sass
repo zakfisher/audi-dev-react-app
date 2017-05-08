@@ -18,3 +18,37 @@
     position: absolute
     height: calc(100% - 3rem)
     width: 100%
+
+  .component-padding
+    padding: 2vh 5vw
+    
+    hr
+      border: 1px solid black
+    
+    h2
+      font-size: 2.5rem
+      line-height: 4rem
+      font-weight: 400
+  
+    table
+      font-size: 1.5rem
+      font-weight: 400
+      display: flex
+      thead
+        width: 100%
+      tr
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+
+  .component-container
+    background-color: $light-gray
+    margin-top: 4vh
+    padding: 1.5rem
+
+  #component-display
+    +css-reset
+    background-color: white
+    min-height: 25vh
+    padding: 1.5rem
+    

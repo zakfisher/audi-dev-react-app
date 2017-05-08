@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import './AEMPreview.sass';
 import COMPONENTS from '../../audi/components';
 import DEMOS from '../../audi/demos';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Searchbar from '../../components/Searchbar/Searchbar';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
-console.log('IFRAME_COMPONENTS', IFRAME_COMPONENTS)
+
 
 class AEMPreview extends Component {
 
@@ -15,61 +17,7 @@ class AEMPreview extends Component {
     componentId: PropTypes.string.isRequired
   };
 
-  get html() {
-    const head = `
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Styles -->
-        <style type="text/css">${this.css}</style>
-
-        <!--
-        <link href="/path/to/compiled/component.css" rel="stylesheet"></link>
-        -->
-
-        <!-- Dependencies -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-      </head>
-    `;
-
-    const body = `
-      <body>
-        <div id="root">${this.serverComponent}</div>
-        <script type="text/babel">
-          window._react2 = { default: React };
-          window._jsxFileName = '';
-          ${Object.keys(IFRAME_COMPONENTS).map(componentName => {
-            return 'const _' + componentName + '2 = { default: ' + IFRAME_COMPONENTS[componentName] + ' };';
-          }).join('')}
-          const Component = ${this.component};
-          ReactDOM.render(
-            <Component />,
-            document.getElementById('root')
-          );
-        </script>
-      </body>
-    `;
-
-    return `${head}${body}`;
-  }
-
-  get css() {
-    return `
-      html {
-        background: white;
-        height: 2000px;
-      }
-      * {
-        color: black;
-        font-family: arial;
-        margin: 0;
-        padding: 0;
-      }
-    `;
-  }
 
   get component() {
     const { componentId } = this.props;
@@ -84,12 +32,46 @@ class AEMPreview extends Component {
 
   render() {
     const { name } = this.props;
+    console.log('props', this.props)
     return (
       <main className={`${name} AEMPreview`}>
         <div className='control-bar'>
           {'AEM Preview'}
         </div>
-        <iframe src={`data:text/html;charset=utf-8,${encodeURI(this.html)}`} />
+        <Sidebar>
+          <div className='fixed-search'>
+            <div>
+              <p>Search by component</p>
+              <Searchbar {...this.props} />
+            </div>
+          </div>
+        </Sidebar>
+        <div className="component-padding MainContent">
+          <h2>{this.props.componentId}</h2>
+          <hr/>
+          <div className="component-container">
+            <h2>{this.props.componentId + " example"}</h2>
+            <div id="component-display">
+              <this.component/>
+            </div>
+          </div>
+          <h2>{"Properties"}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <hr/>
+          <h2>{"Documentation"}</h2>
+          <hr/>
+        </div>
       </main>
     );
   }

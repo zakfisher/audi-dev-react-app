@@ -41,7 +41,7 @@ class Text extends Component {
   };
 
   static defaultProps = {
-    children: 'hello world',
+    children: 'sample text',
     small: true,
     medium: false,
     large: false,
