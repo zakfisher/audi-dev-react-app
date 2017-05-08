@@ -21,6 +21,16 @@ huge:     false
 ```
 */
 
+// const Text = ({ children, small, medium, large, huge, crazy }) => {
+//   let className = 'Text';
+//   if (small) className += ' small';
+//   if (medium) className += ' medium';
+//   if (large) className += ' large';
+//   if (huge) className += ' huge';
+//   if (crazy) className += ' crazy';
+//   return <div className={className}>{children || 'default text'}</div>;
+// };
+
 class Text extends Component {
   static propTypes = {
     children: PropTypes.string,

@@ -6,6 +6,7 @@ import COMPONENTS from '../../audi/components';
 import DEMOS from '../../audi/demos';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
+console.log('IFRAME_COMPONENTS', IFRAME_COMPONENTS)
 
 class AEMPreview extends Component {
 
@@ -38,6 +39,11 @@ class AEMPreview extends Component {
       <body>
         <div id="root">${this.serverComponent}</div>
         <script type="text/babel">
+          window._react2 = { default: React };
+          window._jsxFileName = '';
+          ${Object.keys(IFRAME_COMPONENTS).map(componentName => {
+            return 'const _' + componentName + '2 = { default: ' + IFRAME_COMPONENTS[componentName] + ' };';
+          }).join('')}
           const Component = ${this.component};
           ReactDOM.render(
             <Component />,
