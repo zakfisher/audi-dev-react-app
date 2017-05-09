@@ -10,32 +10,42 @@ class ComponentNote extends Component {
 
     render(){
         let docs = DOCS;
-        let propRows;
-        let propList = docs[this.props.componentId]["props"];
+        let propRows, description, propList, example, documentation;
+        try{
+            propList = docs[this.props.componentId]["props"];
 
-        if (propList){
-            propRows = Object.keys(propList).map( (prop, i)=>(
-                <tr key={i}>
-                    <td className="blue">{propList[prop]["name"]}</td>
-                    <td className="red">{propList[prop]["type"]}</td>
-                    <td>{propList[prop]["default"]}</td>
-                    <td>{propList[prop]["description"]}</td>
-                </tr>
-            ))
+            if (propList){
+                propRows = Object.keys(propList).map( (prop, i)=>(
+                    <tr key={i}>
+                        <td className="blue">{propList[prop]["name"]}</td>
+                        <td className="red">{propList[prop]["type"]}</td>
+                        <td>{propList[prop]["default"]}</td>
+                        <td>{propList[prop]["description"]}</td>
+                    </tr>
+                ))
+            }
+
+            description = docs[this.props.componentId]["description"];
+            example = docs[this.props.componentId]["example"];
+            documentation = docs[this.props.componentId]["documentation"];
+
+        }
+        catch (err){
+            console.log(err)
         }
 
         return (
             <section id={this.props.componentId}>
                 <h2>{this.props.componentId}</h2>
                 <hr/>
-                <p>{docs[this.props.componentId]["description"]}</p>
+                <p>{description}</p>
                 <div className="component-container">
-                <h2>{this.props.componentId + " example"}</h2>
+                <h3>{this.props.componentId + " example"}</h3>
                 <div id="component-display">
-                    {docs[this.props.componentId]["example"]}
+                    {example}
                 </div>
                 </div>
-                <h2>{"Properties"}</h2>
+                <h3>{"Properties"}</h3>
                 <table>
                 <thead>
                     <tr>
@@ -50,9 +60,8 @@ class ComponentNote extends Component {
                 </tbody>
                 </table>
                 <br/>
-                <h2>{"Documentation"}</h2>
-                    <Markdown content={docs[this.props.componentId]["documentation"]}/>
-                <hr/>
+                <h3>{"Documentation"}</h3>
+                    <Markdown content={documentation || ""}/>
             </section>
         )
     }
