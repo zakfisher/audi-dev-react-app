@@ -70,6 +70,23 @@ Notes.getNotesByQuery = (users, notes, query) => {
     );
   }
 
+  Notes.getOnboardingNotes = (users, notes, query) => {
+    let noteList;
+    if (query){
+      noteList = Notes.getNotesByQuery(users, notes, query);
+    }
+    else {
+      noteList = {...notes};
+    }
+
+    let onboardingIds = [];
+
+    return noteList.filter(note=>{
+      return onboardingIds.indexOf(note) > -1
+    })
+
+  };
+
   // Sort by timestamp
   Object.keys(filteredNotes)
   .sort((a, b) => filteredNotes[b].timestamp - filteredNotes[a].timestamp)
