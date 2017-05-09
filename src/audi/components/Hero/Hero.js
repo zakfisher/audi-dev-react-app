@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Hero.sass';
 
-class Text extends Component {
+class Hero extends Component {
     constructor(props){
         super();
     }
@@ -15,3 +15,5 @@ class Text extends Component {
         )
     }
 }
+
+export default Hero

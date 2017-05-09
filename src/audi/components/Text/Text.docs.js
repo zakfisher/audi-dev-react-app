@@ -4,7 +4,7 @@ import React from 'react';
 // Live example to be shown in components#Text
 let example = (
     <div>
-        <p>The text below are examples of <pre>Text</pre> components to be used in AEM.</p>
+        <p>The text below are examples of <span className="pre">Text</span> components to be used in AEM.</p>
         <Text small children="Small Text"/>
         <br/>
         <Text medium children="Medium Text"/>
