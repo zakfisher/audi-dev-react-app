@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './AEMPreview.sass';
 import COMPONENTS from '../../audi/components';
@@ -35,9 +36,9 @@ class AEMPreview extends Component {
     console.log('props', this.props)
     return (
       <main className={`${name} AEMPreview`}>
-        <div className='control-bar'>
+        {/*<div className='control-bar'>
           {'AEM Preview'}
-        </div>
+        </div>*/}
         <Sidebar>
           <div className='fixed-search'>
             <div>
@@ -45,6 +46,14 @@ class AEMPreview extends Component {
               <Searchbar {...this.props} />
             </div>
           </div>
+          <h2>Components</h2>
+          <ul>
+            {Object.keys(COMPONENTS).map((componentId, i) => (
+              <li key={i}>
+                <Link to={`/component/${componentId}`}>{componentId}</Link>
+              </li>
+            ))}
+          </ul>
         </Sidebar>
         <div className="component-padding MainContent">
           <h2>{this.props.componentId}</h2>
