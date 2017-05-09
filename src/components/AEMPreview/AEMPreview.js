@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './AEMPreview.sass';
 import COMPONENTS from '../../audi/components';
-import DOCS from '../../audi/components/docs.index';
 import DEMOS from '../../audi/demos';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Searchbar from '../../components/Searchbar/Searchbar';
+import ComponentNote from '../ComponentNote/ComponentNote';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
 
@@ -36,9 +35,7 @@ class AEMPreview extends Component {
   render() {
     const { name } = this.props;
     console.log('props', this.props)
-    let docs = DOCS;
 
-    console.log(docs[this.props.componentId])
 
     return (
       <main className={`${name} AEMPreview`}>
@@ -56,37 +53,15 @@ class AEMPreview extends Component {
           <ul>
             {Object.keys(COMPONENTS).map((componentId, i) => (
               <li key={i}>
-                <Link to={`/component/${componentId}`}>{componentId}</Link>
+                <a href={"#" + componentId}>{componentId}</a>
               </li>
             ))}
           </ul>
         </Sidebar>
         <div className="component-padding MainContent">
-          <h2>{this.props.componentId}</h2>
-          <hr/>
-          <p>{docs[this.props.componentId]["description"]}</p>
-          <div className="component-container">
-            <h2>{this.props.componentId + " example"}</h2>
-            <div id="component-display">
-              {docs[this.props.componentId]["example"]}
-            </div>
-          </div>
-          <h2>{"Properties"}</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Default</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-          <hr/>
-          <h2>{"Documentation"}</h2>
-          <hr/>
+          {Object.keys(COMPONENTS).map((componentId, i) => {
+            return <ComponentNote componentId={componentId} key={i}/>
+          })}
         </div>
       </main>
     );

@@ -16,8 +16,29 @@ let example = (
     </div>
 )
 
+let props = {
+    children: {
+        name: "children",
+        type: "string",
+        default: "",
+        description: "Defines the text that should be displayed"
+    }
+}
+
+let documentation = (
+`
+    We will need to nail down the markdown later
+
+    function(){
+        return "hi"
+    }
+`
+)
+
 
 export let TextDocs = {
     description: "This is the correct component to use across the application where you need to drop in an ordinary block of text",
-    example: example
+    example: example,
+    props: props,
+    documentation: documentation
 }
