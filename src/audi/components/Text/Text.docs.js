@@ -1,6 +1,7 @@
 import Text from './Text.js';
 import React from 'react';
 
+// Live example to be shown in components#Text
 let example = (
     <div>
         <p>The text below are examples of <pre>Text</pre> components to be used in AEM.</p>
@@ -16,6 +17,18 @@ let example = (
     </div>
 )
 
+/**
+ * Prop descriptions use the following syntax:
+ * 
+ * props = {
+ *   propName: {
+ *     name: "",
+ *     type: "String" || "Array" || "Object" etc... ,
+ *     "default": (not always necessary, but use an empty string if blank),
+ *     "description": ""
+ *   }
+ * }
+ */
 let props = {
     children: {
         name: "children",

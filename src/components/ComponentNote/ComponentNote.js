@@ -11,8 +11,10 @@ class ComponentNote extends Component {
     render(){
         let docs = DOCS;
         let propRows, description, propList, example, documentation;
+        let componentId = this.props.componentId;
+        let component = docs[componentId]
         try{
-            propList = docs[this.props.componentId]["props"];
+            propList = component["props"];
 
             if (propList){
                 propRows = Object.keys(propList).map( (prop, i)=>(
@@ -25,22 +27,23 @@ class ComponentNote extends Component {
                 ))
             }
 
-            description = docs[this.props.componentId]["description"];
-            example = docs[this.props.componentId]["example"];
-            documentation = docs[this.props.componentId]["documentation"];
+            description = component["description"];
+            example = component["example"];
+            documentation = component["documentation"];
 
         }
         catch (err){
-            console.log(err)
+            if (!component) console.log("Missing all documentation for " + componentId);
+            else console.log(err);
         }
 
         return (
-            <section id={this.props.componentId}>
-                <h2>{this.props.componentId}</h2>
+            <section id={componentId}>
+                <h2>{componentId}</h2>
                 <hr/>
                 <p>{description}</p>
                 <div className="component-container">
-                <h3>{this.props.componentId + " example"}</h3>
+                <h3>{componentId + " example"}</h3>
                 <div id="component-display">
                     {example}
                 </div>
