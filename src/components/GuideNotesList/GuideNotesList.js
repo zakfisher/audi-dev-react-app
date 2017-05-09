@@ -12,7 +12,7 @@ class GuideNotesList extends Component {
     if (!dataReady || !user) return null;
 
     // Filter notes by query
-    const filteredNotes = Notes.getNotesByQuery(users, notes, searchQuery);
+    const filteredNotes = Notes.getOnboardingNotes(users, notes, searchQuery);
 
     return filteredNotes.map(noteId => {
       const props = { dataReady, noteId, user, users, notes };

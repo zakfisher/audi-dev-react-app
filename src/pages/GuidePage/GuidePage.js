@@ -43,6 +43,11 @@ class GuidePage extends Component {
 
           <MainContent>
             <NoteView {...this.props} />
+            <div id="guide-content">
+              <h1>Welcome to AKQA!</h1>
+              <p>This guide (hopefully) will walk you through the steps that you need to get started developing for Audi.</p>
+              <p>Please walk through the links on your left. Feel free to reach out on Slack if you have any questions!</p>
+            </div>
           </MainContent>
 
         </main>
