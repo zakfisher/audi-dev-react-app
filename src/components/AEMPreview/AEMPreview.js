@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './AEMPreview.sass';
 import COMPONENTS from '../../audi/components';
+import DOCS from '../../audi/components/docs.index';
 import DEMOS from '../../audi/demos';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Searchbar from '../../components/Searchbar/Searchbar';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
+
 
 
 class AEMPreview extends Component {
@@ -34,6 +36,10 @@ class AEMPreview extends Component {
   render() {
     const { name } = this.props;
     console.log('props', this.props)
+    let docs = DOCS;
+
+    console.log(docs[this.props.componentId])
+
     return (
       <main className={`${name} AEMPreview`}>
         {/*<div className='control-bar'>
@@ -58,10 +64,11 @@ class AEMPreview extends Component {
         <div className="component-padding MainContent">
           <h2>{this.props.componentId}</h2>
           <hr/>
+          <p>{docs[this.props.componentId]["description"]}</p>
           <div className="component-container">
             <h2>{this.props.componentId + " example"}</h2>
             <div id="component-display">
-              <this.component/>
+              {docs[this.props.componentId]["example"]}
             </div>
           </div>
           <h2>{"Properties"}</h2>
