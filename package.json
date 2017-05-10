@@ -65,7 +65,7 @@
     "eslint-plugin-import": "2.0.1",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.4.1",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "0.10.0",
     "fs-extra": "0.30.0",
     "html-webpack-plugin": "2.24.0",
@@ -78,7 +78,7 @@
     "react-dev-utils": "^0.5.2",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "1.14.0",
+    "webpack": "^2.5.1",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
