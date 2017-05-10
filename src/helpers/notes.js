@@ -78,29 +78,5 @@ Notes.getNotesByQuery = (users, notes, query) => {
   return sortedNotes;
 };
 
-Notes.getOnboardingNotes = (users, notes, query) => {
-  let noteList = [];
-  noteList = Notes.getNotesByQuery(users, notes, query);
-
-  let output = [];
-  // Reference for which notes I've chosen
-  // README (this app): "-KjUn4QNEFVn1T3LQWLT"
-  // Getting Started: "-Khy6LeYQvYqwzjPX7I9"
-  // Localhost:8000 is blank: "-Kj3xYw8qc8NlVR2Thz_"
-  // Refresh Content-Init: "-Kj3xfvE6b7-b6v4wo2L"
-  // Create a Jira Ticket:  "-KjdzdfhtPUEbJcHnH2q"
-
-  let onboardingIds = ["-KjUn4QNEFVn1T3LQWLT", "-Khy6LeYQvYqwzjPX7I9", "-Kj3xYw8qc8NlVR2Thz_", "-Kj3xfvE6b7-b6v4wo2L", "-KjdzdfhtPUEbJcHnH2q"];
-  let filtered = noteList.filter(note=>{
-    return onboardingIds.indexOf(note) > -1
-  })
-
-  onboardingIds.forEach(id=>{
-    output.push(filtered[filtered.indexOf(id)]);
-  })
-
-  return output;
-
-};
 
 export default Notes;
