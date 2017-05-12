@@ -9,6 +9,7 @@
 
 # production
 /build
+/.audi-components
 
 # assets
 /assets

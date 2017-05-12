@@ -25,4 +25,5 @@ const TextComponentDemo = () => (
   </section>
 );
 
-export default TextComponentDemo;
+window.AudiReact = window.AudiReact || {};
+export default window.AudiReact.TextComponentDemo = TextComponentDemo;

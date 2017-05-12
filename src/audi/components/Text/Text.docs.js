@@ -19,7 +19,7 @@ let example = (
 
 /**
  * Prop descriptions use the following syntax:
- * 
+ *
  * props = {
  *   propName: {
  *     name: "",

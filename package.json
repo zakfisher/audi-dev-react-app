@@ -3,21 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "ttab 'yarn run components:watch' && ttab 'yarn run test' && node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "npm run build:components && npm cd functions && npm i",
-
-    "update:db": "node scripts/service-account.js",
-
-    "add:component": "<name>",
-    "components": "npm run build:components && npm run serve:components",
-    "list:components": "auto-generate src/fixtures/audi-components.js",
-    "build:components": "NODE_ENV=production webpack --config config/webpack.config.components.js",
-    "serve:components": "serve build-components",
-
-    "start:offline": "OFFLINE=true node scripts/start.js",
-    "storage:server": "serve storage -p 1234"
+    "postinstall": "npm run components:build && cd functions && npm i",
+    "": "",
+    "setup": "brew install yarn && npm i -g serve ttab nodemon && npm i && npm start",
+    "components:add": "<name>",
+    "components:list": "auto-generate src/fixtures/audi-components.js",
+    "components:build": "NODE_ENV=production webpack --config config/webpack.config.components.js",
+    "components:serve": "serve .audi-components",
+    "components:watch": "nodemon --exec 'yarn run components:build && yarn run components:serve' ./src/audi/components/**/**/*"
   },
   "engines": {
     "node": "^6.10.x",
@@ -30,6 +26,7 @@
     "html-loader": "^0.4.5",
     "moment": "^2.18.1",
     "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
@@ -43,7 +40,8 @@
     "rx-dom": "^7.0.3",
     "sass-loader": "^6.0.3",
     "serve": "^5.1.4",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "ttab": "^0.5.1"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",

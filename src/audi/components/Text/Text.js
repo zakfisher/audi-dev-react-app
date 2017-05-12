@@ -56,7 +56,7 @@ class Text extends Component {
     if (this.props.huge) className += ' huge';
     if (this.props.crazy) className += ' crazy';
     return (
-      <div className={className} onClick={() => console.log('something magical')}>{this.props.children}</div>
+      <div className={className} onClick={() => console.log('something magical just happened')}>{this.props.children}</div>
     );
   }
 }
