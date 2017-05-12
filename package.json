@@ -6,13 +6,16 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "cd functions && npm i",
-    "deploy": "npm run build && firebase deploy",
-    "migrate": "node scripts/migrate.js",
+    "postinstall": "npm run build:components && npm cd functions && npm i",
+
+    "update:db": "node scripts/service-account.js",
+
+    "add:component": "<name>",
+    "components": "npm run build:components && npm run serve:components",
+    "list:components": "auto-generate src/fixtures/audi-components.js",
     "build:components": "NODE_ENV=production webpack --config config/webpack.config.components.js",
-    "docs": "npm run build:docs && npm run serve:docs",
-    "build:docs": "NODE_ENV=production documentation build src/audi/components/index.js -f html -o src/audi/docs",
-    "serve:docs": "serve src/audi/docs",
+    "serve:components": "serve build-components",
+
     "start:offline": "OFFLINE=true node scripts/start.js",
     "storage:server": "serve storage -p 1234"
   },

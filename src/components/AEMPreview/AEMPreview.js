@@ -16,59 +16,38 @@ class AEMPreview extends Component {
   };
 
   get html() {
+    const { componentId } = this.props;
     const head = `
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Styles -->
-        <style type="text/css">${this.css}</style>
-
-        <!--
-        <link href="/path/to/compiled/component.css" rel="stylesheet"></link>
-        -->
+        <link href="http://localhost:5000/css/style.css" rel="stylesheet"></link>
 
         <!-- Dependencies -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="https://unpkg.com/prop-types/prop-types.js"></script>
+        <script src="http://localhost:5000/js/${componentId}.js"></script>
       </head>
     `;
 
     const body = `
       <body>
         <div id="root">${this.serverComponent}</div>
-        <script type="text/babel">
-          window._react2 = { default: React };
-          window._jsxFileName = '';
-          ${Object.keys(IFRAME_COMPONENTS).map(componentName => {
-            return 'const _' + componentName + '2 = { default: ' + IFRAME_COMPONENTS[componentName] + ' };';
-          }).join('')}
-          const Component = ${this.component};
+        <script type="text/javascript">
           ReactDOM.render(
-            <Component />,
-            document.getElementById('root')
+            React.createElement(
+              window.AudiReact.${componentId}
+            ),
+            document.querySelector('#root')
           );
         </script>
       </body>
     `;
 
     return `${head}${body}`;
-  }
-
-  get css() {
-    return `
-      html {
-        background: white;
-        height: 2000px;
-      }
-      * {
-        color: black;
-        font-family: arial;
-        margin: 0;
-        padding: 0;
-      }
-    `;
   }
 
   get component() {
