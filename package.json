@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "ttab 'yarn run components:watch' && ttab 'yarn run test' && node scripts/start.js",
+    "start": "ttab 'yarn run components:watch' && ttab 'yarn run test' && ttab 'git branch' && node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "postinstall": "npm run components:build && cd functions && npm i",
