@@ -78,4 +78,5 @@ Notes.getNotesByQuery = (users, notes, query) => {
   return sortedNotes;
 };
 
+
 export default Notes;

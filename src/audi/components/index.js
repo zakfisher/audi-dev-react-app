@@ -1,7 +1,8 @@
 import Text from './Text/Text';
+import Hero from './Hero/Hero';
 
 const COMPONENTS = {
-  Text
+  Text, Hero
 };
 
 export default COMPONENTS;
