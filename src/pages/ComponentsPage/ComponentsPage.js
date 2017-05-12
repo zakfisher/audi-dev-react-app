@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
+import AEMPreview from '../../components/AEMPreview/AEMPreview';
 import './ComponentsPage.sass';
-import COMPONENTS from '../../audi/components';
 
 class ComponentsPage extends Component {
   redirect() {
@@ -23,21 +22,13 @@ class ComponentsPage extends Component {
     let markup = <Loader />;
 
     if (this.props.user) {
-      markup = (
-        <main className="ComponentsPage">
-          <ul>
-            {Object.keys(COMPONENTS).map((componentId, i) => (
-              <li key={i}>
-                <Link to={`/component/${componentId}`}>{componentId}</Link>
-              </li>
-            ))}
-          </ul>
-        </main>
-      );
+      const { componentId } = this.props.match.params;
+      markup = <AEMPreview name='ComponentsPage' componentId={componentId || "Text"} />;
     }
 
     return markup;
   }
+
 }
 
 export default ComponentsPage;

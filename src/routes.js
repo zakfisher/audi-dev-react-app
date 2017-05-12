@@ -3,7 +3,6 @@ import App from './components/App';
 
 // Pages
 import ComponentsPage from './pages/ComponentsPage/ComponentsPage';
-import ComponentPage from './pages/ComponentPage/ComponentPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import DemosPage from './pages/DemosPage/DemosPage';
 import DemoPage from './pages/DemoPage/DemoPage';
@@ -24,10 +23,6 @@ const routes = [{
     {
       path: '/components',
       component: ComponentsPage
-    },
-    {
-      path: '/component/:componentId',
-      component: ComponentPage
     },
     {
       path: '/dashboard',

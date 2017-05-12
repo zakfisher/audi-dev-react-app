@@ -38,7 +38,7 @@ const Nav = ({ user, location }) => {
         {/* Secondary Nav Bar */}
         <div className="secondary-nav">
           <Link to="/notes" className={getLinkClass(url, '/note')}>Notes</Link>
-          <Link to="/components" className={getLinkClass(url, '/component')}>Components</Link>
+          <Link to="/components" className={getLinkClass(url, '/components')}>Components</Link>
           <Link to="/demos" className={getLinkClass(url, '/demo')}>Demos</Link>
           <Link to="/onboarding" className={getLinkClass(url, '/onboarding')}>Onboarding</Link>
         </div>
