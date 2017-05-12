@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router';
-import Notes from '../../helpers/notes';
+import { Redirect } from 'react-router';
 import GuideNoteItem from '../GuideNoteItem/GuideNoteItem';
 import onboardingIds from '../../fixtures/onboarding';
 import './GuideNotesList.sass';
@@ -8,7 +7,7 @@ import './GuideNotesList.sass';
 class GuideNotesList extends Component {
 
   get notes() {
-    const { dataReady, user, users, notes, searchQuery, match } = this.props;
+    const { dataReady, user, users, notes, match } = this.props;
     const { noteId } = match.params;
     this.state = { activeNoteId: noteId };
     if (!dataReady || !user) return null;
