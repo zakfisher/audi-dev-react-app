@@ -9,7 +9,7 @@
     "postinstall": "cd functions && npm i",
     "deploy": "npm run build && firebase deploy",
     "migrate": "node scripts/migrate.js",
-    "build:components": "NODE_ENV=production webpack --config config/webpack.config.components.js",
+    "build:components": "NODE_ENV=production webpack --config config/webpack.config.components.js && serve build-components",
     "docs": "npm run build:docs && npm run serve:docs",
     "build:docs": "NODE_ENV=production documentation build src/audi/components/index.js -f html -o src/audi/docs",
     "serve:docs": "serve src/audi/docs",
