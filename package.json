@@ -7,7 +7,7 @@
     "start": "ttab 'tabset --color crimson && yarn run test' && ttab 'tabset --color paleturquoise && node scripts/start.js' && ttab 'tabset --color springgreen && yarn run components:watch' && tabset --color whitesmoke && git status",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "npm run components:build && cd functions && npm i",
+    "postinstall": "cd functions && npm i",
     "": "",
     "components:add": "node scripts/make-starter-component",
     "components:list": "node scripts/make-component-list",
@@ -16,8 +16,8 @@
     "components:watch": "nodemon --exec 'yarn run components:list && yarn run components:build && yarn run components:serve' ./src/audi/components/**/**/*"
   },
   "engines": {
-    "node": "^6.10.x",
-    "npm": "^3.10.x"
+    "node": "^7.10.x",
+    "npm": "^4.2.x"
   },
   "dependencies": {
     "documentation": "^4.0.0-rc.1",
