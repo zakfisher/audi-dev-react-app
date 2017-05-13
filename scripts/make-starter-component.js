@@ -1,13 +1,13 @@
 'use strict';
 
-const OUTPUT_FOLDER = `${__dirname.replace('/scripts', '')}/src/app/components`;
+var componentName = 'ZaksComponent'
+
+const fs = require('fs');
+const ROOT_FOLDER = __dirname.replace('/scripts', '')
+const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/app/components`;
+const OUTPUT_FOLDER = `${COMPONENTS_FOLDER}/${componentName}`;
 
 console.log('new component', OUTPUT_FOLDER);
-
-// const fs = require('fs');
-// const ROOT_FOLDER = __dirname.replace('/scripts', '')
-// const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/audi/components`;
-// const OUTPUT_FILE = `${ROOT_FOLDER}/.components.json`;
 
 // let COMPONENT_LIST = {};
 // COMPONENT_LIST['style'] = `${COMPONENTS_FOLDER}/style.js`;

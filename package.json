@@ -2,18 +2,8 @@
   "name": "dev-react-app",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "setup": "brew install yarn && npm i -g serve ttab iterm2-tab-set nodemon && npm i && npm start",
-    "start": "ttab 'tabset --color crimson && yarn run test' && ttab 'tabset --color paleturquoise && node scripts/start.js' && ttab 'tabset --color springgreen && yarn run components:watch' && tabset --color whitesmoke && git status",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "cd functions && npm i",
-    "": "",
-    "components:add": "node scripts/make-starter-component",
-    "components:list": "node scripts/make-component-list",
-    "components:build": "NODE_ENV=production webpack --config config/webpack.config.components.js",
-    "components:serve": "serve .components",
-    "components:watch": "nodemon --exec 'yarn run components:list && yarn run components:build && yarn run components:serve' ./src/app/components/**/**/*"
+  "bin": {
+    "audi": "./cli.js"
   },
   "engines": {
     "node": "^7.10.x",
@@ -38,7 +28,8 @@
     "redux": "^3.6.0",
     "rx-dom": "^7.0.3",
     "sass-loader": "^6.0.3",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "shelljs": "^0.7.7"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",

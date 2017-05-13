@@ -9,11 +9,15 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 `git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
-`cd audi-dev-react-app && npm run setup`
+`cd audi-dev-react-app && npm i -g`
+
+This will install a tailor-made CLI, which we can then use as follows:
+
+`audi setup`
 
 ## Dev Workflow
 
-Run `yarn start` to open 4 tabs:
+Run `audi dev` to open 4 tabs:
 
 1. Project Root
 

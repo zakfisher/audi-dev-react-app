@@ -16,5 +16,5 @@ fs.readdir(COMPONENTS_FOLDER, function(err, items) {
     addBundle(name, getPath(name));
   })
   const fileContents = JSON.stringify(COMPONENT_LIST);
-  fs.writeFile(OUTPUT_FILE, fileContents);
+  fs.writeFileSync(OUTPUT_FILE, fileContents);
 });
