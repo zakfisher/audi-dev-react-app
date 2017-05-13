@@ -15,7 +15,7 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 ## Run Locally
 
-Run `npm start` to start webpack dev server.
+Run `npm run setup` if this is your first time. Otherwise run `yarn start`.
 
 Local instance is at <http://localhost:3000>.
 
