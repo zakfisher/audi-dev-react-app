@@ -5,8 +5,6 @@ A knowledge-sharing and collaborative development environment created for Audi d
 
 View online [here](https://audi-fe-notes.firebaseapp.com).
 
-> This app is forked from [Create React App](https://github.com/facebookincubator/create-react-app)
-
 ## Getting started
 
 `git clone https://github.com/zakfisher/audi-dev-react-app.git`
@@ -25,13 +23,9 @@ Run `yarn start` to open 4 tabs:
 
 4. Component Server (for in-app component development)
 
-## Documentation
-
-Generate and serve docs with `npm run docs`.
-
-View docs at <http://localhost:5000>.
-
 ## Technologies
+
+> This app is forked from [Create React App](https://github.com/facebookincubator/create-react-app)
 
 * React
 * React-router
@@ -39,6 +33,7 @@ View docs at <http://localhost:5000>.
 * Webpack
 * Firebase
 * SASS
+* Jest
 
 ## Contribute
 
