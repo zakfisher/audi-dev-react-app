@@ -9,7 +9,6 @@
 
 # production
 /build
-/.audi-components
 
 # assets
 /assets
@@ -29,3 +28,4 @@ Audi FE Tools-0b2e0ab43b1d.json
 
 # components
 .components
+.components.json

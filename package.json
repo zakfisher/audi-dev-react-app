@@ -10,9 +10,9 @@
     "postinstall": "npm run components:build && cd functions && npm i",
     "": "",
     "components:add": "<name>",
-    "components:list": "auto-generate src/fixtures/audi-components.js",
-    "components:build": "NODE_ENV=production webpack --config config/webpack.config.components.js",
-    "components:serve": "serve .audi-components",
+    "components:list": "node scripts/make-component-list",
+    "components:build": "yarn run components:list && NODE_ENV=production webpack --config config/webpack.config.components.js",
+    "components:serve": "serve .components",
     "components:watch": "nodemon --exec 'yarn run components:build && yarn run components:serve' ./src/audi/components/**/**/*"
   },
   "engines": {

@@ -1,7 +1,8 @@
 'use strict';
 
-const COMPONENTS = require('../src/fixtures/audi-components');
-const OUTPUT_FOLDER = '.audi-components';
+const COMPONENTS = require('../.components.json');
+console.log('COMPONENTS', COMPONENTS);
+const OUTPUT_FOLDER = '.components';
 const EXTERNALS = {
   "react": 'React',
   "react-dom": 'ReactDOM',
