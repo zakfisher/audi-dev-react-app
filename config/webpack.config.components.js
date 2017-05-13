@@ -1,9 +1,6 @@
 'use strict';
 
 const COMPONENTS = require('../.components.json');
-
-console.log('COMPONENT BUNDLES:', '\n', COMPONENTS);
-
 const OUTPUT_FOLDER = '.components';
 const EXTERNALS = {
   "react": 'React',
