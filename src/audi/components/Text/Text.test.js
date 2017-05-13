@@ -15,3 +15,9 @@ it('should set innerHTML of Text', () => (
     else reject();
   })
 ));
+
+it('should fail', () => (
+  new Promise((resolve, reject) => {
+    reject();
+  })
+));
