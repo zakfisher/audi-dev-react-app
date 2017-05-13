@@ -17,13 +17,13 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 Run `yarn start` to open 4 tabs:
 
-1. Webpack Dev Server (running at at <http://localhost:3000>)
+1. Project Root
 
-2. Unit Tests
+2. Unit Testing
 
-3. Component Server (for in-app component dev)
+3. Webpack Dev Server (running at at <http://localhost:3000>)
 
-4. Project Root
+4. Component Server (for in-app component development)
 
 ## Documentation
 
