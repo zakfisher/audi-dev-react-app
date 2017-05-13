@@ -11,15 +11,19 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 `git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
-`cd audi-dev-react-app && npm i`
+`cd audi-dev-react-app && npm run setup`
 
-## Run Locally
+## Dev Workflow
 
-Run `npm run setup` if this is your first time. Otherwise run `yarn start`.
+Run `yarn start` to open 4 tabs:
 
-Local instance is at <http://localhost:3000>.
+1. Webpack Dev Server (running at at <http://localhost:3000>)
 
-Run `npm test` in a separate terminal window to watch/run unit tests.
+2. Unit Tests
+
+3. Component Server (for in-app component dev)
+
+4. Project Root
 
 ## Documentation
 

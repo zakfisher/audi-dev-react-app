@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "setup": "brew install yarn && npm i -g serve ttab iterm2-tab-set nodemon && npm i && npm start",
-    "start": "ttab -w 'tabset --color crimson && yarn run test' && ttab -w 'tabset --color paleturquoise && node scripts/start.js' && ttab -w 'tabset --color springgreen && yarn run components:watch' && tabset --color whitesmoke && git status",
+    "start": "ttab 'tabset --color crimson && yarn run test' && ttab 'tabset --color paleturquoise && node scripts/start.js' && ttab 'tabset --color springgreen && yarn run components:watch' && tabset --color whitesmoke && git status",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "postinstall": "npm run components:build && cd functions && npm i",
