@@ -1,5 +1,5 @@
 {
-  "name": "audi-dev-react-app",
+  "name": "dev-react-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "components:list": "node scripts/make-component-list",
     "components:build": "NODE_ENV=production webpack --config config/webpack.config.components.js",
     "components:serve": "serve .components",
-    "components:watch": "nodemon --exec 'yarn run components:list && yarn run components:build && yarn run components:serve' ./src/audi/components/**/**/*"
+    "components:watch": "nodemon --exec 'yarn run components:list && yarn run components:build && yarn run components:serve' ./src/app/components/**/**/*"
   },
   "engines": {
     "node": "^7.10.x",

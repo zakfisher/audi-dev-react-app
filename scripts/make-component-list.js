@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const ROOT_FOLDER = __dirname.replace('/scripts', '')
-const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/audi/components`;
+const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/app/components`;
 const OUTPUT_FILE = `${ROOT_FOLDER}/.components.json`;
 
 let COMPONENT_LIST = {};

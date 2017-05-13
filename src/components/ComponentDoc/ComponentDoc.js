@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DOCS from '../../audi/components/docs';
+import DOCS from '../../app/components/docs';
 import Markdown from '../Markdown/Markdown';
 
 class ComponentDoc extends Component {

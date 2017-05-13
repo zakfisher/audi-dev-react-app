@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import './AEMPreview.sass';
-import COMPONENTS from '../../audi/components';
-import DEMOS from '../../audi/demos';
+import COMPONENTS from '../../app/components';
+import DEMOS from '../../app/demos';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
 console.log('IFRAME_COMPONENTS', IFRAME_COMPONENTS)
