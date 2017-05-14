@@ -77,7 +77,7 @@ command('components',
       info(`Component created: "${program.component}"`);
       cmd = 'echo ';
     }
-    if (program.list)      cmd = `node scripts/make-component-list`;
+    if (program.list)      cmd = `node scripts/make-component-lists`;
     if (program.build)     cmd = `${CLI} components -l && NODE_ENV=production webpack --config config/webpack.config.components.js`;
     if (program.refresh)   cmd = `${CLI} components -b && ${CLI} components -s`;
     if (program.serve)     cmd = `serve .components`;
@@ -93,11 +93,11 @@ command('components',
     cmd(`${CLI} components -b`);
     cmd(`${CLI} components --build`);
     br();
-    desc('Build components list (outputs to /.components.json)');
+    desc('Build components lists (outputs to /.components.json, /src/app/components.js,docs.js,style.js)');
     cmd(`${CLI} components -l`);
     cmd(`${CLI} components --list`);
     br();
-    desc('Refresh components watcher');
+    desc('Refresh components watcher');``
     cmd(`${CLI} components -r`);
     cmd(`${CLI} components --refresh`);
     br();

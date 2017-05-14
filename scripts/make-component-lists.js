@@ -2,12 +2,33 @@
 
 const fs = require('fs');
 const ROOT_FOLDER = __dirname.replace('/scripts', '')
-const COMPONENTS_JSON = `${ROOT_FOLDER}/.components.json`;
+
 const APP_FOLDER = `${ROOT_FOLDER}/src/app`;
 const COMPONENTS_FOLDER = `${APP_FOLDER}/components`;
+const DEMOS_FOLDER = `${APP_FOLDER}/demos`;
+
+const COMPONENTS_JSON = `${ROOT_FOLDER}/.components.json`;
 const APP_COMPONENTS_JS = `${APP_FOLDER}/components.js`;
+const APP_DEMOS_JS = `${APP_FOLDER}/demos.js`;
 const APP_DOCS_JS = `${APP_FOLDER}/docs.js`;
 const APP_STYLE_JS = `${APP_FOLDER}/style.js`;
+
+// Read demos directory
+fs.readdir(DEMOS_FOLDER, function(err, items) {
+  let DEMOS_FILE = '';
+  let DEMOS_OBJ = '';
+
+  items.map(name => {
+    if (name.indexOf('.js') === -1) return false;
+    name = name.replace('.js', '');
+    DEMOS_FILE  += `import ${name} from './demos/${name}/${name}';`;
+    DEMOS_OBJ  += `DEMOS["${name}"] = ${name};`;
+  });
+
+  // Write src/app/demos.js
+  DEMOS_FILE += `const DEMOS = {}; ${DEMOS_OBJ} export default DEMOS;`;
+  fs.writeFileSync(APP_DEMOS_JS, DEMOS_FILE);
+});
 
 // Read components directory
 fs.readdir(COMPONENTS_FOLDER, function(err, items) {
@@ -49,3 +70,4 @@ fs.readdir(COMPONENTS_FOLDER, function(err, items) {
   // Write src/app/components/style.js
   fs.writeFileSync(APP_STYLE_JS, STYLE_FILE);
 });
+
