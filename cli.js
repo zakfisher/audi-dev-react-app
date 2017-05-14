@@ -68,9 +68,7 @@ command('test',
 command('build',
   'Build this app (pre-firebase deploy)',
   () => `
-    npm i -g firebase-tools \
-    && npm i -g \
-    && node scripts/build.js \
+    node scripts/build.js \
     && cd functions \
     && npm i
   `

@@ -6,6 +6,10 @@ branches:
   only:
     - master
 
+before_script:
+  - npm i -g firebase-tools
+  - npm i -g
+
 script:
   - audi build
 
