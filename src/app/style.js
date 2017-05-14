@@ -1,0 +1,1 @@
+import './components/Hero/Hero.sass';import './components/Text/Text.sass';

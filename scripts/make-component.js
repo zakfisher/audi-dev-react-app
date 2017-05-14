@@ -1,13 +1,15 @@
 'use strict';
 
-var componentName = 'ZaksComponent'
-
 const fs = require('fs');
 const ROOT_FOLDER = __dirname.replace('/scripts', '')
 const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/app/components`;
-const OUTPUT_FOLDER = `${COMPONENTS_FOLDER}/${componentName}`;
 
-console.log('new component', OUTPUT_FOLDER);
+module.exports = function makeComponent(componentName) {
+
+  const OUTPUT_FOLDER = `${COMPONENTS_FOLDER}/${componentName}`;
+  console.log('make component', OUTPUT_FOLDER);
+}
+
 
 // let COMPONENT_LIST = {};
 // COMPONENT_LIST['style'] = `${COMPONENTS_FOLDER}/style.js`;

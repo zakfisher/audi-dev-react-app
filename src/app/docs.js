@@ -1,0 +1,1 @@
+import HeroDoc from './components/Hero/Hero.docs';import TextDoc from './components/Text/Text.docs';const DOCS = {}; DOCS["Hero"] = HeroDoc;DOCS["Text"] = TextDoc; export default DOCS;

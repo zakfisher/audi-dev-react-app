@@ -5,6 +5,7 @@ const version = require('./package.json').version;
 const shell = require('shelljs');
 const program = require('commander');
 const chalk = require('chalk');
+const makeComponent = require('./scripts/make-component');
 
 const COMMANDS = {};
 const HELP = {};
@@ -24,6 +25,7 @@ function handler(action) {
 
 const desc = text => console.log(' ' + chalk.cyan.bold(text));
 const cmd = text => console.log(' ' + chalk.yellow(text));
+const info = text => console.log(' ' + chalk.blue(text));
 const br = () => console.log('');
 
 function help() {
@@ -69,12 +71,17 @@ command('components',
   'Peform component operations (must specify a flag)',
   function script() {
     let cmd = `echo You must specify a flag to perform component operations.`;
-    if (program.component) cmd = `echo add component: ${program.component}`;
+    if (program.component) {
+      info(`Creating new component "${program.component}"...`);
+      makeComponent(program.component);
+      info(`Component created: "${program.component}"`);
+      cmd = 'echo ';
+    }
     if (program.list)      cmd = `node scripts/make-component-list`;
     if (program.build)     cmd = `${CLI} components -l && NODE_ENV=production webpack --config config/webpack.config.components.js`;
     if (program.refresh)   cmd = `${CLI} components -b && ${CLI} components -s`;
     if (program.serve)     cmd = `serve .components`;
-    if (program.watch)     cmd = `nodemon --exec '${CLI} components -r' ./src/app/components/**/**/*`;
+    if (program.watch)     cmd = `nodemon --exec '${CLI} components -r' --watch src/app/components`;
     return cmd;
   },
   function examples() {
