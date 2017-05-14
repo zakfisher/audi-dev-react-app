@@ -26,19 +26,19 @@ const desc = text => console.log(' ' + chalk.cyan.bold(text));
 const cmd = text => console.log(' ' + chalk.yellow(text));
 const br = () => console.log('');
 
-command('help',
-  'Show available commands',
-  () => {
-    br()
-    Object.keys(HELP).map(name => {
-      desc(`${HELP[name]}`);
-      cmd(`${CLI} ${name}`);
-      br();
-      if (EXAMPLES[name]) EXAMPLES[name]();
-    });
-    return 'echo ';
-  }
-);
+function help() {
+  br()
+  Object.keys(HELP).map(name => {
+    desc(`${HELP[name]}`);
+    cmd(`${CLI} ${name}`);
+    br();
+    if (EXAMPLES[name]) EXAMPLES[name]();
+  });
+  return 'echo ';
+};
+
+command('h', 'Show available commands', help);
+command('help', 'Show available commands', help);
 
 command('setup',
   'Set up the dev toolchain',
@@ -65,6 +65,17 @@ command('test',
   () => `node scripts/test.js --env=jsdom`
 );
 
+command('build',
+  'Build this app (pre-firebase deploy)',
+  () => `
+    npm i -g firebase-tools \
+    && npm i -g \
+    && node scripts/build.js \
+    && cd functions \
+    && npm i
+  `
+);
+
 command('components',
   'Peform component operations (must specify a flag)',
   function script() {
@@ -82,7 +93,7 @@ command('components',
     cmd(`${CLI} components -a MyComponent`);
     cmd(`${CLI} components --add MyComponent`);
     br();
-    desc('Build component assets (css/js outputs to /.components)');
+    desc('Build components assets (outputs to /.components/css,js)');
     cmd(`${CLI} components -b`);
     cmd(`${CLI} components --build`);
     br();
@@ -94,7 +105,7 @@ command('components',
     cmd(`${CLI} components -r`);
     cmd(`${CLI} components --refresh`);
     br();
-    desc('Start component server');
+    desc('Start components server');
     cmd(`${CLI} components -s`);
     cmd(`${CLI} components --serve`);
   }
