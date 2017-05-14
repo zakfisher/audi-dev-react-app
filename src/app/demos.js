@@ -1,1 +1,1 @@
-import TextComponentDemo from './demos/TextComponentDemo/TextComponentDemo';const DEMOS = {}; DEMOS["TextComponentDemo"] = TextComponentDemo; export default DEMOS;
+import TextComponentDemo from './demos/TextComponentDemo.js';const DEMOS = {}; DEMOS["TextComponentDemo"] = TextComponentDemo; export default DEMOS;

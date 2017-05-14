@@ -4,6 +4,8 @@ const fs = require('fs');
 const ROOT_FOLDER = __dirname.replace('/scripts', '')
 const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/app/components`;
 
+
+
 module.exports = function makeComponent(componentName) {
 
   const OUTPUT_FOLDER = `${COMPONENTS_FOLDER}/${componentName}`;

@@ -21,7 +21,7 @@ fs.readdir(DEMOS_FOLDER, function(err, items) {
   items.map(name => {
     if (name.indexOf('.js') === -1) return false;
     name = name.replace('.js', '');
-    DEMOS_FILE  += `import ${name} from './demos/${name}/${name}';`;
+    DEMOS_FILE  += `import ${name} from './demos/${name}.js';`;
     DEMOS_OBJ  += `DEMOS["${name}"] = ${name};`;
   });
 
