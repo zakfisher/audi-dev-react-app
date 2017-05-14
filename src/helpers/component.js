@@ -85,7 +85,7 @@ class ${name} extends Component {
   }
 
   static propTypes = {
-    color: PropTypes.string,
+    color: PropTypes.string
   };
 
   static defaultProps = {
@@ -136,21 +136,6 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<${name} />, div);
 });
-
-it('should set innerHTML of ${name}', () => (
-  new Promise((resolve, reject) => {
-    const div = document.createElement('div');
-    ReactDOM.render(<${name}>sup</${name}>, div);
-    if (div.querySelector('.${name}').innerHTML === 'sup') resolve();
-    else reject();
-  })
-));
-
-it('should fail', () => (
-  new Promise((resolve, reject) => {
-    reject();
-  })
-));
 `;
 
 module.exports = COMPONENT;
