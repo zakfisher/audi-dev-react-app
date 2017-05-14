@@ -44,7 +44,7 @@ command('setup',
   'Set up the dev toolchain',
   () => `
     brew install yarn \
-    && npm i -g serve ttab iterm2-tab-set nodemon webpack \
+    && npm i -g serve ttab iterm2-tab-set nodemon \
     && npm i \
     && ${CLI} dev
   `
@@ -63,15 +63,6 @@ command('dev',
 command('test',
   'Run unit tests',
   () => `node scripts/test.js --env=jsdom`
-);
-
-command('build',
-  'Build this app (pre-firebase deploy)',
-  () => `
-    node scripts/build.js \
-    && cd functions \
-    && npm i
-  `
 );
 
 command('components',

@@ -8,10 +8,10 @@ branches:
 
 before_script:
   - npm i -g firebase-tools
-  - npm i -g
 
 script:
-  - audi build
+  - node scripts/build.js
+  - cd functions && npm i
 
 after_success:
   - firebase deploy --token=${FIREBASE_API_TOKEN}
