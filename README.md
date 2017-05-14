@@ -11,7 +11,7 @@ Clone repo with `git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
 Install project CLI with `cd audi-dev-react-app && npm i -g`
 
-Run setup with `audi setup`,
+Run setup with `audi setup`.
 
 ## Dev Workflow
 
