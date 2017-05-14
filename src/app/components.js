@@ -1,1 +1,1 @@
-import Hero from './components/Hero/Hero';import Text from './components/Text/Text';const COMPONENTS = {}; COMPONENTS["Hero"] = Hero;COMPONENTS["Text"] = Text; export default COMPONENTS;
+import Hero from './components/Hero/Hero';import MyComponent from './components/MyComponent/MyComponent';import Text from './components/Text/Text';const COMPONENTS = {}; COMPONENTS["Hero"] = Hero;COMPONENTS["MyComponent"] = MyComponent;COMPONENTS["Text"] = Text; export default COMPONENTS;

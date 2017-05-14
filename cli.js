@@ -58,7 +58,8 @@ command('dev',
     ttab 'tabset --color crimson && ${CLI} test' \
     && ttab 'tabset --color paleturquoise && node scripts/start.js' \
     && ttab 'tabset --color springgreen && ${CLI} components -w' \
-    && tabset --color whitesmoke && git status
+    && tabset --color whitesmoke \
+    && echo Run ${chalk.cyan(`${CLI} help`)} for a full list of commands.
   `
 );
 
@@ -72,9 +73,10 @@ command('components',
   function script() {
     let cmd = `echo You must specify a flag to perform component operations.`;
     if (program.component) {
-      info(`Creating new component "${program.component}"...`);
-      makeComponent(program.component);
-      info(`Component created: "${program.component}"`);
+      const name = program.component[0].toUpperCase() + program.component.slice(1);
+      info(`Creating new component "${name}"...`);
+      makeComponent(name);
+      info(`Component created: "${name}"`);
       cmd = 'echo ';
     }
     if (program.list)      cmd = `node scripts/make-component-lists`;
@@ -87,7 +89,7 @@ command('components',
   function examples() {
     desc('Add new component');
     cmd(`${CLI} components -a MyComponent`);
-    cmd(`${CLI} components --add MyComponent`);
+    cmd(`${CLI} components --component MyComponent`);
     br();
     desc('Build components assets (outputs to /.components/css,js)');
     cmd(`${CLI} components -b`);

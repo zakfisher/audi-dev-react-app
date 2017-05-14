@@ -1,8 +1,18 @@
 'use strict';
 
-const fs = require('fs');
-const ROOT_FOLDER = __dirname.replace('/scripts', '')
+/*
+Output:
+.components.json
+src
+-- app
+---- components.js
+---- demos.js
+---- docs.js
+---- style.js
+*/
 
+const fs = require('fs');
+const ROOT_FOLDER = process.env.PWD;
 const APP_FOLDER = `${ROOT_FOLDER}/src/app`;
 const COMPONENTS_FOLDER = `${APP_FOLDER}/components`;
 const DEMOS_FOLDER = `${APP_FOLDER}/demos`;
@@ -70,4 +80,3 @@ fs.readdir(COMPONENTS_FOLDER, function(err, items) {
   // Write src/app/components/style.js
   fs.writeFileSync(APP_STYLE_JS, STYLE_FILE);
 });
-
