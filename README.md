@@ -11,7 +11,7 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 `cd audi-dev-react-app && npm i -g`
 
-This will install a tailor-made CLI, which we can then use as follows:
+This will install a CLI, which we can use as follows:
 
 `audi setup`
 
@@ -26,6 +26,14 @@ Run `audi dev` to open 4 tabs:
 3. Webpack Dev Server (running at at <http://localhost:3000>)
 
 4. Component Server (for in-app component development)
+
+## Testing
+
+Run tests with `audi test`.
+
+## CLI
+
+Run `audi help` for a list of available commands.
 
 ## Technologies
 
