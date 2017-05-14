@@ -81,7 +81,7 @@ command('components',
     if (program.build)     cmd = `${CLI} components -l && NODE_ENV=production webpack --config config/webpack.config.components.js`;
     if (program.refresh)   cmd = `${CLI} components -b && ${CLI} components -s`;
     if (program.serve)     cmd = `serve .components`;
-    if (program.watch)     cmd = `nodemon --exec '${CLI} components -r' --watch src/app/components`;
+    if (program.watch)     cmd = `nodemon --exec '${CLI} components -r' --watch src/app/components -e js,sass`;
     return cmd;
   },
   function examples() {
