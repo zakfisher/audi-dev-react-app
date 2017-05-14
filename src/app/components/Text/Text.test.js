@@ -7,17 +7,17 @@ it('renders without crashing', () => {
   ReactDOM.render(<Text />, div);
 });
 
-// it('should set innerHTML of Text', () => (
-//   new Promise((resolve, reject) => {
-//     const div = document.createElement('div');
-//     ReactDOM.render(<Text>sup</Text>, div);
-//     if (div.querySelector('.Text').innerHTML === 'sup') resolve();
-//     else reject();
-//   })
-// ));
+it('should set innerHTML of Text', () => (
+  new Promise((resolve, reject) => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Text>sup</Text>, div);
+    if (div.querySelector('.Text').innerHTML === 'sup') resolve();
+    else reject();
+  })
+));
 
-// it('should fail', () => (
-//   new Promise((resolve, reject) => {
-//     reject();
-//   })
-// ));
+it.skip('should fail', () => (
+  new Promise((resolve, reject) => {
+    reject();
+  })
+));

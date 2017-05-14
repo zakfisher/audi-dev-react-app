@@ -124,10 +124,6 @@ COMPONENT.sass = name => `
 `;
 
 COMPONENT.test = name => `
-/**
-  ${name} Component Tests
-*/
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ${name} from './${name}';
@@ -136,6 +132,12 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<${name} />, div);
 });
+
+it.skip('should fail', () => (
+  new Promise((resolve, reject) => {
+    reject();
+  })
+));
 `;
 
 module.exports = COMPONENT;

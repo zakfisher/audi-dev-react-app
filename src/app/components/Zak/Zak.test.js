@@ -1,9 +1,14 @@
+
+/**
+  Zak Component Tests
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hero from './Hero';
+import Zak from './Zak';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Hero />, div);
+  ReactDOM.render(<Zak />, div);
 });
 
