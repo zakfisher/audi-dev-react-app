@@ -7,13 +7,11 @@ View online [here](https://audi-fe-notes.firebaseapp.com).
 
 ## Getting started
 
-`git clone https://github.com/zakfisher/audi-dev-react-app.git`
+Clone repo with `git clone https://github.com/zakfisher/audi-dev-react-app.git`
 
-`cd audi-dev-react-app && npm i -g`
+Install project CLI with `cd audi-dev-react-app && npm i -g`
 
-This will install a CLI, which we can use as follows:
-
-`audi setup`
+Run setup with `audi setup`,
 
 ## Dev Workflow
 
