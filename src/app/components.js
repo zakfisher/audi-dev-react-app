@@ -1,1 +1,1 @@
-import MyComponent from './components/MyComponent/MyComponent';import Testyyy from './components/Testyyy/Testyyy';import Text from './components/Text/Text';const COMPONENTS = {}; COMPONENTS["MyComponent"] = MyComponent;COMPONENTS["Testyyy"] = Testyyy;COMPONENTS["Text"] = Text; export default COMPONENTS;
+import Text from './components/Text/Text';const COMPONENTS = {}; COMPONENTS["Text"] = Text; export default COMPONENTS;

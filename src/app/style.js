@@ -1,1 +1,1 @@
-import './components/MyComponent/MyComponent.sass';import './components/Testyyy/Testyyy.sass';import './components/Text/Text.sass';
+import './components/Text/Text.sass';
