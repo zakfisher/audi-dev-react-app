@@ -1,1 +1,1 @@
-import './components/Hero/Hero.sass';import './components/Text/Text.sass';import './components/Zak/Zak.sass';
+import './components/MyComponent/MyComponent.sass';import './components/Testyyy/Testyyy.sass';import './components/Text/Text.sass';

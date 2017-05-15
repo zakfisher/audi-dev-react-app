@@ -68,45 +68,55 @@ command('test',
   () => `node scripts/test.js --env=jsdom`
 );
 
+function components() {
+  let cmd = `echo You must specify a flag to perform component operations.`;
+  if (program.add) {
+    const name = program.add[0].toUpperCase() + program.add.slice(1);
+    info(`Creating new component "${name}"...`);
+    makeComponent(name);
+    info(`Component created: "${name}"`);
+    cmd = 'echo ';
+  }
+  if (program.list)    cmd = `node scripts/make-component-lists`;
+  if (program.build)   cmd = `${CLI} components -l && NODE_ENV=production webpack --config config/webpack.config.components.js`;
+  if (program.refresh) cmd = `${CLI} components -b && ${CLI} components -s`;
+  if (program.serve)   cmd = `serve .components`;
+  if (program.watch)   cmd = `nodemon --exec '${CLI} components -r' --watch src/app/components -e js,sass`;
+  return cmd;
+}
+
+function componentsExamples() {
+  desc('Add new component');
+  cmd(`${CLI} c -a MyComponent`);
+  cmd(`${CLI} components -a MyComponent`);
+  cmd(`${CLI} components --add MyComponent`);
+  br();
+  desc('Build components assets (outputs to /.components/css,js)');
+  cmd(`${CLI} components -b`);
+  cmd(`${CLI} components --build`);
+  br();
+  desc('Build components lists (outputs to /.components.json, /src/app/components.js,docs.js,style.js)');
+  cmd(`${CLI} components -l`);
+  cmd(`${CLI} components --list`);
+  br();
+  desc('Refresh components watcher');``
+  cmd(`${CLI} components -r`);
+  cmd(`${CLI} components --refresh`);
+  br();
+  desc('Start components server');
+  cmd(`${CLI} components -s`);
+  cmd(`${CLI} components --serve`);
+};
+
+command('c',
+  'Peform component operations (must specify a flag)',
+  components
+);
+
 command('components',
   'Peform component operations (must specify a flag)',
-  function script() {
-    let cmd = `echo You must specify a flag to perform component operations.`;
-    if (program.component) {
-      const name = program.component[0].toUpperCase() + program.component.slice(1);
-      info(`Creating new component "${name}"...`);
-      makeComponent(name);
-      info(`Component created: "${name}"`);
-      cmd = 'echo ';
-    }
-    if (program.list)      cmd = `node scripts/make-component-lists`;
-    if (program.build)     cmd = `${CLI} components -l && NODE_ENV=production webpack --config config/webpack.config.components.js`;
-    if (program.refresh)   cmd = `${CLI} components -b && ${CLI} components -s`;
-    if (program.serve)     cmd = `serve .components`;
-    if (program.watch)     cmd = `nodemon --exec '${CLI} components -r' --watch src/app/components -e js,sass`;
-    return cmd;
-  },
-  function examples() {
-    desc('Add new component');
-    cmd(`${CLI} components -a MyComponent`);
-    cmd(`${CLI} components --component MyComponent`);
-    br();
-    desc('Build components assets (outputs to /.components/css,js)');
-    cmd(`${CLI} components -b`);
-    cmd(`${CLI} components --build`);
-    br();
-    desc('Build components lists (outputs to /.components.json, /src/app/components.js,docs.js,style.js)');
-    cmd(`${CLI} components -l`);
-    cmd(`${CLI} components --list`);
-    br();
-    desc('Refresh components watcher');``
-    cmd(`${CLI} components -r`);
-    cmd(`${CLI} components --refresh`);
-    br();
-    desc('Start components server');
-    cmd(`${CLI} components -s`);
-    cmd(`${CLI} components --serve`);
-  }
+  components,
+  componentsExamples
 );
 
 // Run CLI
@@ -114,7 +124,7 @@ program
 .version(version)
 .arguments('<action>')
 .description('Audi CLI for React component development')
-.option('-a, --component <component>', 'A component name.')
+.option('-a, --add <component>',       'Add a component.')
 .option('-b, --build',                 'Compile component assets (to /.components).')
 .option('-l, --list',                  'Dynamically generate component list (to /.components.json).')
 .option('-r, --refresh',               'Refresh component assets (will compile & serve).')

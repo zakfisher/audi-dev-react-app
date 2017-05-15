@@ -1,19 +1,21 @@
+'use strict';
 
+const MAIN_FILE = name => `
 /**
-  Zak Component
+  ${name} Component
 */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Zak.sass';
+import './${name}.sass';
 
 const GREETINGS = [
-  'Hello, My name is Zak.',
-  "What's happening? #Zak",
-  'Yolo and stuff, Zak'
+  'Hello, My name is ${name}.',
+  "What's happening? #${name}",
+  'Yolo and stuff, ${name}'
 ];
 
-class Zak extends Component {
+class ${name} extends Component {
   constructor() {
     super();
 
@@ -25,7 +27,7 @@ class Zak extends Component {
   }
 
   static propTypes = {
-    color: PropTypes.string,
+    color: PropTypes.string
   };
 
   static defaultProps = {
@@ -41,7 +43,7 @@ class Zak extends Component {
   render() {
     const style = { color: this.props.color };
     return (
-      <div className={Zak}
+      <div className='${name}'
         style={style}
         onClick={this.setGreeting}>
         {GREETINGS[this.state.greetingIndex]}
@@ -51,4 +53,7 @@ class Zak extends Component {
 }
 
 window.AudiReact = window.AudiReact || {};
-export default window.AudiReact.Zak = Zak;
+export default window.AudiReact.${name} = ${name};
+`;
+
+module.exports = MAIN_FILE;

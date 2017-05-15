@@ -1,21 +1,23 @@
+'use strict';
 
+const DOCS_FILE = name => `
 /**
-  Zak Component Documentation
+  ${name} Component Documentation
 */
 
 import React from 'react';
-import Zak from './Zak.js';
+import ${name} from './${name}.js';
 
 let description = 'This is the correct component to use across the application where you need to drop in an ordinary block of text';
 
-// Live example to be shown in components#Zak
+// Live example to be shown in components#${name}
 let example = (
   <div>
     <p>First component variation</p>
-    <Zak prop1={true} />
+    <${name} prop1={true} />
 
     <p>Second component variation</p>
-    <Zak prop1={false} />
+    <${name} prop1={false} />
   </div>
 );
 
@@ -44,11 +46,14 @@ let documentation = ('
   # Something Special..
 ');
 
-const ZakDocs = {
+const ${name}Docs = {
   description,
   example,
   props,
   documentation
 };
 
-export default ZakDocs;
+export default ${name}Docs;
+`;
+
+module.exports = DOCS_FILE;

@@ -1,1 +1,1 @@
-import HeroDoc from './components/Hero/Hero.docs';import TextDoc from './components/Text/Text.docs';import ZakDoc from './components/Zak/Zak.docs';const DOCS = {}; DOCS["Hero"] = HeroDoc;DOCS["Text"] = TextDoc;DOCS["Zak"] = ZakDoc; export default DOCS;
+import MyComponentDoc from './components/MyComponent/MyComponent.docs';import TestyyyDoc from './components/Testyyy/Testyyy.docs';import TextDoc from './components/Text/Text.docs';const DOCS = {}; DOCS["MyComponent"] = MyComponentDoc;DOCS["Testyyy"] = TestyyyDoc;DOCS["Text"] = TextDoc; export default DOCS;

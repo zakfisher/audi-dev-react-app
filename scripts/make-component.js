@@ -16,7 +16,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 const shell = require('shelljs');
 
-const COMPONENT = require('../src/helpers/component');
+const COMPONENT = require('../src/fixtures/component');
 const ROOT_FOLDER = process.env.PWD.replace('/scripts', '')
 const COMPONENTS_FOLDER = `${ROOT_FOLDER}/src/app/components`;
 
