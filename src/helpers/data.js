@@ -38,24 +38,18 @@ Data.fetch = () => {
   User.logIn().then(user => {
     if (!user) return Data.ready();
 
-    // Set user in Redux
-    store.dispatch(
-      actions.setUser(user)
-    );
-
     // Sync Notes with Redux + Firebase
-    Notes.sync(() => {
+    Notes.once(() => {
       dataLoaded.notes = true;
       checkLoadStatus();
+      Notes.sync();
     });
 
-    // Sync User with Redux + Firebase
+    // Sync User(s) with Redux + Firebase
     Users.once(users => {
       dataLoaded.users = true;
       checkLoadStatus();
       User.save(users, user);
-
-      // Sync Users with Redux + Firebase
       Users.sync();
     });
   });

@@ -2,8 +2,22 @@ import actions from '../redux/actions';
 import store from '../redux/store';
 import Firebase from './firebase';
 
+/*
+  1st GH login (with redirect) contains a token for subsequent logins.
+  That token expires after 1hr.
+  During that hour, each page refresh re-authorizes with GH using that token.
+
+  To allow auth-free page refreshes, we will ignore the token login for 1hr on each page refresh.
+  After 1hr of no refreshes, we fall back to GH auth.
+*/
+
 const setUser = (user, credential = null) => {
   if (!user) return localStorage.clear();
+
+  // Set user in Redux
+  store.dispatch(
+    actions.setUser(user)
+  );
 
   // Cache user token
   if (credential) {
@@ -14,11 +28,6 @@ const setUser = (user, credential = null) => {
   // Cache user object
   localStorage.setItem('user', JSON.stringify(user));
 
-  // Set user in Redux
-  store.dispatch(
-    actions.setUser(user)
-  );
-
   // Allow 1hr to set user from cache
   const now = (new Date()).getTime()
   const oneHour = 1000 * 60 * 60;
@@ -27,14 +36,6 @@ const setUser = (user, credential = null) => {
 
 const User = {};
 
-/*
-  1st GH login (with redirect) contains a token for subsequent logins.
-  That token expires after 1hr.
-  During that hour, each page refresh re-authorizes with GH using that token.
-
-  To allow auth-free page refreshes, we will ignore the token login for 1hr on each page refresh.
-  After 1hr of no refreshes, we fall back to GH auth.
-*/
 User.logIn = () => {
   return new Promise((resolve, reject) => {
 
