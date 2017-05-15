@@ -21,38 +21,36 @@ const checkLoadStatus = () => {
   if (ready) Data.ready();
 };
 
+const hydrateRedux = user => {
+  if (!user) return Data.ready();
+
+  // Sync Notes with Redux + Firebase
+  Notes.once(() => {
+    dataLoaded.notes = true;
+    checkLoadStatus();
+    Notes.sync();
+  });
+
+  // Sync User(s) with Redux + Firebase
+  Users.once(users => {
+    dataLoaded.users = true;
+    checkLoadStatus();
+    User.save(users, user);
+    Users.sync();
+  });
+};
+
 Data.ready = () => {
-  // Tell Redux we're g2g
   if (dataReady) return;
+  dataReady = true;
   store.dispatch(
     actions.dataReady()
   );
-  dataReady = true;
 };
 
 Data.fetch = () => {
-  // Escape if data already fetched
   if (dataReady) return;
-
-  // Check if the user is logged in
-  User.logIn().then(user => {
-    if (!user) return Data.ready();
-
-    // Sync Notes with Redux + Firebase
-    Notes.once(() => {
-      dataLoaded.notes = true;
-      checkLoadStatus();
-      Notes.sync();
-    });
-
-    // Sync User(s) with Redux + Firebase
-    Users.once(users => {
-      dataLoaded.users = true;
-      checkLoadStatus();
-      User.save(users, user);
-      Users.sync();
-    });
-  });
+  User.logIn().then(hydrateRedux);
 };
 
 export default Data;
