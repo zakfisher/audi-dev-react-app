@@ -6,7 +6,6 @@ import COMPONENTS from '../../app/components';
 import DEMOS from '../../app/demos';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
-console.log('IFRAME_COMPONENTS', IFRAME_COMPONENTS)
 
 class AEMPreview extends Component {
 

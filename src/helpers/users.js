@@ -4,8 +4,12 @@ import Firebase from './firebase';
 
 let ref = null;
 
-const setUsers = snapshot => {
-  const users = snapshot.val() || {};
+const setUsers = users => {
+
+  // Cache users object
+  localStorage.setItem('users', JSON.stringify(users));
+
+  // Set users in redux
   store.dispatch(
     actions.setUsers(users)
   );
@@ -14,16 +18,27 @@ const setUsers = snapshot => {
 const Users = {};
 
 Users.once = callback => {
-  Firebase.once('users', snapshot => {
-    setUsers(snapshot);
-    callback(snapshot);
+  ref = Firebase.once('users', snapshot => {
+    const users = snapshot.val();
+    setUsers(users);
+    callback(users);
   });
 };
 
 Users.sync = callback => {
+
+  // Set users from localStorage
+  const cache = JSON.parse(localStorage.getItem('users'));
+  if (cache) {
+    setUsers(cache);
+    if (callback) callback(cache);
+  }
+
+  // Sync with firebase
   ref = Firebase.on('users', snapshot => {
-    setUsers(snapshot);
-    callback(snapshot);
+    const users = snapshot.val();
+    setUsers(users);
+    if (callback) callback(users);
   });
 };
 

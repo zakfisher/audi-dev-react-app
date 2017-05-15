@@ -4,27 +4,30 @@ import store from '../redux/store';
 import Firebase from './firebase';
 
 let ref = null;
+let firstSync = true;
 
-const setNotes = snapshot => {
-  const notes = snapshot.val() || {};
+const setNotes = (notes, firstSyncCallback) => {
+  localStorage.setItem('notes', JSON.stringify(notes));
   store.dispatch(
     actions.setNotes(notes)
   );
+  if (!firstSync) return;
+  firstSyncCallback(notes);
+  firstSync = false;
 };
 
 const Notes = {};
 
-Notes.once = callback => {
-  Firebase.once('notes', snapshot => {
-    setNotes(snapshot);
-    callback(snapshot);
-  });
-};
-
 Notes.sync = callback => {
+
+  // Set notes from localStorage
+  const cache = JSON.parse(localStorage.getItem('notes'));
+  if (cache) setNotes(cache, callback);
+
+  // Sync with firebase
   ref = Firebase.on('notes', snapshot => {
-    setNotes(snapshot);
-    callback(snapshot);
+    const notes = snapshot.val();
+    setNotes(notes, callback);
   });
 };
 

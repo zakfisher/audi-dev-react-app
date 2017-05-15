@@ -43,22 +43,21 @@ Data.fetch = () => {
       actions.setUser(user)
     );
 
-    // Set notes in Redux, and sync with firebase
+    // Sync Notes with Redux + Firebase
     Notes.sync(() => {
       dataLoaded.notes = true;
       checkLoadStatus();
     });
 
-    // Set users in Redux, and sync with firebase
-    Users.sync(snapshot => {
+    // Sync User with Redux + Firebase
+    Users.once(users => {
       dataLoaded.users = true;
       checkLoadStatus();
-
-      // Save user to firebase
-      const users = snapshot.val();
       User.save(users, user);
-    });
 
+      // Sync Users with Redux + Firebase
+      Users.sync();
+    });
   });
 };
 
