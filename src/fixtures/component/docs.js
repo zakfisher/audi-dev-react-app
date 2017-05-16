@@ -42,9 +42,7 @@ let props = {
   }
 };
 
-let documentation = ('
-  # Something Special..
-');
+let documentation = "Something special...";
 
 const ${name}Docs = {
   description,

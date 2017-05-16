@@ -106,6 +106,10 @@ function componentsExamples() {
   desc('Start components server');
   cmd(`${CLI} components -s`);
   cmd(`${CLI} components --serve`);
+  br();
+  desc('Start components watcher');
+  cmd(`${CLI} components -w`);
+  cmd(`${CLI} components --watch`);
 };
 
 command('c',
