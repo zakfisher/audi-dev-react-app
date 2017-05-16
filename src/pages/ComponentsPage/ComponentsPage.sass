@@ -1,15 +1,6 @@
 @import '../../styles/core'
 
 .ComponentsPage
-    #ComponentsList
-        margin-left: 32rem
-        padding: 15px
-        background-color: white
-        min-height: calc(100vh - $nav-height)
-    p 
-        font-size: 1.5rem
-    li
-        font-size: 1.5rem
     .control-bar
         background: $dark-gray
         color: white
@@ -19,71 +10,3 @@
         justify-content: center
         font-size: 1.5rem
         +bold
-
-    iframe
-        position: absolute
-        height: calc(100% - 3rem)
-        width: 100%
-
-    section
-        hr
-            border-bottom: 1px solid black
-        
-        h2
-            font-size: 2.5rem
-            line-height: 4rem
-            font-weight: 400
-    
-        h3
-            font-size: 2rem
-            line-height: 4rem
-            font-weight: 400
-
-        table
-            font-size: 1.5rem
-            font-weight: 400
-            display: flex
-            flex-direction: column
-            width: 100%
-
-        thead
-            width: 100%
-            display:block
-        tbody
-            display:block
-
-        tr
-            display: flex
-            flex-direction: row
-            justify-content: space-between
-            border-bottom: solid 1px $light-gray
-            margin-bottom: 5px
-        th, td
-            width: 25%
-            text-align: start
-        
-        .blue
-            color: #0270A0
-        .red
-            color: #C60202
-
-    .component-container
-        background-color: $light-gray
-        margin-top: 4vh
-        padding: 1.5rem
-
-    #component-display
-        background-color: white
-        min-height: 25vh
-        padding: 1.5rem
-
-    p 
-        font-size: 1.4rem
-        margin: 8px 0
-    
-    .pre
-        display: inline
-        background-color: $light-gray
-    
-    section
-        margin-bottom: 30px

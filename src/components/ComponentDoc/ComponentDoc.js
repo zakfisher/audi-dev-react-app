@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import DOCS from '../../app/docs';
 import Markdown from '../Markdown/Markdown';
 
+import './ComponentDoc.sass'
+
 class ComponentDoc extends Component {
 
     constructor(props){
@@ -44,7 +46,7 @@ class ComponentDoc extends Component {
                 <p>{description}</p>
                 <div className="component-container">
                 <h3>{componentId + " example"}</h3>
-                <div id="component-display">
+                <div className="component-display">
                     {example}
                 </div>
                 </div>

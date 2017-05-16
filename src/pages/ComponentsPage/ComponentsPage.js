@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
 import './ComponentsPage.sass';
 import COMPONENTS from '../../app/components';
-import ComponentDoc from '../../components/ComponentDoc/ComponentDoc';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Searchbar from '../../components/Searchbar/Searchbar';
+import ComponentDocsList from '../../components/ComponentDocsList/ComponentDocsList';
 
 class ComponentsPage extends Component {
   redirect() {
@@ -42,11 +42,7 @@ class ComponentsPage extends Component {
                 ))}
               </ul>
             </Sidebar>
-            <div id="ComponentsList">
-              {Object.keys(COMPONENTS).map((componentId, i) => {
-                return <ComponentDoc componentId={componentId} key={i}/>
-              })}
-            </div>
+            <ComponentDocsList />
         </main>
       );
     }

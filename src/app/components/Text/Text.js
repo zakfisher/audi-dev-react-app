@@ -15,9 +15,7 @@ class Text extends Component {
 
   render() {
     let className = 'Text ';
-    if(this.props.size) {
-      className += this.props.size
-    }
+    if (this.props.size) className += ` ${this.props.size}`;
 
     return (
       <div className={className}>{this.props.text}</div>
