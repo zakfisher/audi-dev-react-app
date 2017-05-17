@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import User from '../../helpers/user';
+import { getPreviewHiddenString } from '../../helpers/preview';
 import SVG from '../SVG/SVG';
 import audiRingsSVG from '../../svg/audi-rings.svg';
 import caretSVG from '../../svg/caret.svg';
@@ -15,7 +16,7 @@ const Nav = ({ user, location }) => {
 
   if (user) {
     markup = (
-      <nav className="Nav">
+      <nav className={"Nav" + getPreviewHiddenString()}>
 
         {/* Primary Nav Bar */}
         <div className="primary-nav">

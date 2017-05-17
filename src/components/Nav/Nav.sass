@@ -19,9 +19,10 @@ $nav-dropdown-width: 5rem
   z-index: 100
   height: $nav-height
   width: 100%
+  transition: all .75s $easeInExpo
 
   &.hidden
-    display: none
+    transform: translateY(-$nav-height)
 
   a
     position: relative

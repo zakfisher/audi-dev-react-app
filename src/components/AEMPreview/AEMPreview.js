@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './AEMPreview.sass';
 import COMPONENTS from '../../app/components';
 import DEMOS from '../../app/demos';
+import { togglePreview, checkPreview } from '../../helpers/preview';
 
 const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
 
@@ -60,14 +61,19 @@ class AEMPreview extends Component {
     );
   }
 
+  checkActive (){
+    return checkPreview() ? " active" : ""
+  }
+
   render() {
     const { name } = this.props;
+    let active = this.checkActive();
     return (
-      <main className={`${name} AEMPreview`}>
-        <div className='control-bar'>
+      <main className={`${name} AEMPreview` + active}>
+        <div onClick={()=>{togglePreview()} } className={'control-bar' + active}>
           {'AEM Preview'}
         </div>
-        <iframe src={`data:text/html;charset=utf-8,${encodeURI(this.html)}`} />
+        <iframe className={active} src={`data:text/html;charset=utf-8,${encodeURI(this.html)}`} />
       </main>
     );
   }

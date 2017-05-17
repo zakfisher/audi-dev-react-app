@@ -5,7 +5,10 @@
   height: auto
   width: 100%
   overflow: scroll
-  position: relative;
+  position: relative
+  transition: all .35s ease
+  &.hidden
+    transform: translateX(-$sidebar-width)
 
   p
     font-size: 1.2rem
