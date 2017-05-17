@@ -2,7 +2,7 @@
 
 section
     hr
-        border-bottom: 1px solid black
+        border-bottom: 0.1rem solid black
     
     h2
         font-size: 2.5rem
@@ -17,48 +17,45 @@ section
     table
         font-size: 1.5rem
         font-weight: 400
-        display: flex
+        display: table
         flex-direction: column
         width: 100%
 
     thead
         width: 100%
-        display:block
-    tbody
-        display:block
 
     tr
         display: flex
         flex-direction: row
         justify-content: space-between
-        border-bottom: solid 1px $light-gray
-        margin-bottom: 5px
+        border-bottom: solid 0.1rem $light-gray
+        margin-bottom: .5rem
     th, td
         width: 25%
         text-align: start
+        padding: 0.2rem
     
     .blue
-        color: #0270A0
+        color: $blue-text
     .red
-        color: #C60202
+        color: $red-text
 
     .component-container
         background-color: $light-gray
-        margin-top: 4vh
+        margin-top: 2rem
         padding: 1.5rem
 
     .component-display
         background-color: white
-        min-height: 25vh
         padding: 1.5rem
 
     p 
         font-size: 1.4rem
-        margin: 8px 0
+        margin: .5rem 0
 
     .pre
         display: inline
         background-color: $light-gray
 
     section
-        margin-bottom: 30px
+        margin-bottom: 2rem
