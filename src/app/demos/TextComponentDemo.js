@@ -3,25 +3,11 @@ import Text from '../components/Text/Text';
 
 const TextComponentDemo = () => (
   <section className="TextComponentDemo" onClick={() => console.log('real component')}>
-    <Text small>
-      Small Text
-    </Text>
-    <br/>
-    <Text medium>
-      Medium Text
-    </Text>
-    <br/>
-    <Text large>
-      Large Text
-    </Text>
-    <br/>
-    <Text huge>
-      Huge Text
-    </Text>
-    <br/>
-    <Text crazy>
-      Crazy Text
-    </Text>
+    <Text size="small" text="Small Text"/>
+    <Text size="medium" text="Medium Text"/>
+    <Text size="large" text="Large Text"/>
+    <Text size="huge" text="Huge Text"/> 
+    <Text size="crazy" text="Crazy Text"/>
   </section>
 );
 

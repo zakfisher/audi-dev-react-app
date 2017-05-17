@@ -5,15 +5,11 @@ import React from 'react';
 let example = (
     <div>
         <p>The text below are examples of <span className="pre">Text</span> components to be used in AEM.</p>
-        <Text small children="Small Text"/>
-        <br/>
-        <Text medium children="Medium Text"/>
-        <br/>
-        <Text large children="Large Text"/>
-        <br/>
-        <Text huge children="Huge Text"/>
-        <br/>
-        <Text crazy children="Crazy Text"/>
+        <Text size="small" text="Small Text"/>
+        <Text size="medium" text="Medium Text"/>
+        <Text size="large" text="Large Text"/>
+        <Text size="huge" text="Huge Text"/>
+        <Text size="crazy" text="Crazy Text"/>
     </div>
 )
 
@@ -30,28 +26,31 @@ let example = (
  * }
  */
 let props = {
-    children: {
-        name: "children",
-        type: "string",
-        default: "",
+    text: {
+        name: "text",
+        type: "String",
+        default: `""`,
         description: "Defines the text that should be displayed"
+    },
+    size: {
+        name: "size",
+        type: `String: oneOf ["small", "medium", "large", "huge", "crazy"]`,
+        default: '"small"',
+        description: `Adds a class to determine what size to render`
     }
 }
 
 let documentation = (
 `
-    We will need to nail down the markdown later
-
-    function(){
-        return "hi"
-    }
+    The Text component takes text and outputs a div that contains the text. 
 `
 )
 
-
-export let TextDocs = {
+let TextDocs = {
     description: "This is the correct component to use across the application where you need to drop in an ordinary block of text",
     example: example,
     props: props,
     documentation: documentation
 }
+
+export default TextDocs;

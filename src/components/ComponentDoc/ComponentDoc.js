@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import DOCS from '../../app/components/docs';
+import { Link } from 'react-router-dom';
+import DOCS from '../../app/docs';
 import Markdown from '../Markdown/Markdown';
+
+import './ComponentDoc.sass'
 
 class ComponentDoc extends Component {
 
@@ -38,12 +41,12 @@ class ComponentDoc extends Component {
 
         return (
             <section id={componentId}>
-                <h2>{componentId}</h2>
+                <h2><Link to={`/component/${componentId}`}>{componentId}</Link></h2>
                 <hr/>
                 <p>{description}</p>
                 <div className="component-container">
                 <h3>{componentId + " example"}</h3>
-                <div id="component-display">
+                <div className="component-display">
                     {example}
                 </div>
                 </div>
@@ -52,7 +55,7 @@ class ComponentDoc extends Component {
                 <thead>
                     <tr>
                     <th>Name</th>
-                    <th>Type</th>
+                    <th>PropType</th>
                     <th>Default</th>
                     <th>Description</th>
                     </tr>
