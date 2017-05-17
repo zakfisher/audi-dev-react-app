@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import './ComponentsPage.sass';
 import COMPONENTS from '../../app/components';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Searchbar from '../../components/Searchbar/Searchbar';
+import ComponentDocsList from '../../components/ComponentDocsList/ComponentDocsList';
 
 class ComponentsPage extends Component {
   redirect() {
@@ -25,13 +27,22 @@ class ComponentsPage extends Component {
     if (this.props.user) {
       markup = (
         <main className="ComponentsPage">
-          <ul>
-            {Object.keys(COMPONENTS).map((componentId, i) => (
-              <li key={i}>
-                <Link to={`/component/${componentId}`}>{componentId}</Link>
-              </li>
-            ))}
-          </ul>
+            <Sidebar>
+              <div className='fixed-search'>
+                <div>
+                  <p>Search by component</p>
+                  <Searchbar {...this.props} />
+                </div>
+              </div>
+              <ul>
+                {Object.keys(COMPONENTS).map((componentId, i) => (
+                  <li key={i}>
+                    <a href={`#${componentId}`}>{componentId}</a>
+                  </li>
+                ))}
+              </ul>
+            </Sidebar>
+            <ComponentDocsList />
         </main>
       );
     }
