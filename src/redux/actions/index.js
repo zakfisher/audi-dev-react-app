@@ -2,6 +2,7 @@ import * as dataActions from './data';
 import * as fileActions from './file';
 import * as noteActions from './note';
 import * as userActions from './user';
+import * as previewActions from './preview';
 
 /**
   App Actions
@@ -20,7 +21,8 @@ const appActions = {
   ...dataActions,
   ...fileActions,
   ...noteActions,
-  ...userActions
+  ...userActions,
+  ...previewActions
 };
 
 export default appActions;

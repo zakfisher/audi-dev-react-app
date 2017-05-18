@@ -39,9 +39,7 @@ const Loader = props => {
   // Randomize loader
   const randomIndex = random(0, NAMES.length - 1);
   const name = NAMES[randomIndex];
-  return (
-    <SVG file={LOADERS[name]} name={`Loader ${name}SVG`} />
-  );
+  return (<SVG file={LOADERS[name]} name={`Loader ${name}SVG`}/>);
 }
 
 export default Loader;

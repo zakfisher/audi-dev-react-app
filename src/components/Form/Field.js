@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { validate } from '../../helpers/validator';
+import {validate} from '../../helpers/validator';
 import Input from './Input';
 
 /* eslint-disable no-extend-native */
-String.prototype.ucFirst = function() {
-  return this[0].toUpperCase() + this.substr(1).toLowerCase();
+String.prototype.ucFirst = function () {
+  return this[0].toUpperCase() + this
+    .substr(1)
+    .toLowerCase();
 };
 /* eslint-enable no-extend-native */
 
@@ -19,9 +21,15 @@ class Field extends Component {
       value: ''
     };
 
-    this.focus = this.focus.bind(this);
-    this.blur = this.blur.bind(this);
-    this.onChange = this.onChange.bind(this);
+    this.focus = this
+      .focus
+      .bind(this);
+    this.blur = this
+      .blur
+      .bind(this);
+    this.onChange = this
+      .onChange
+      .bind(this);
   }
 
   static propTypes = {
@@ -32,14 +40,17 @@ class Field extends Component {
   };
 
   clearErrors() {
-    const { form, index } = this.props;
-    if (!this.state.error && !form.state.error) return;
+    const {form, index} = this.props;
+    if (!this.state.error && !form.state.error) {
+      return;
+    }
+
     // Clear form and field errors
     const error = null;
-    const { fields } = form;
+    const {fields} = form;
     fields[index].error = null;
-    this.setState({ error });
-    form.setState({ error, fields });
+    this.setState({error});
+    form.setState({error, fields});
   }
 
   blur(e) {
@@ -51,16 +62,16 @@ class Field extends Component {
   }
 
   onChange(e) {
-    const { value } = e.target;
+    const {value} = e.target;
     this.setValue(value);
     this.clearErrors();
   }
 
   validate(e) {
-    const { value } = e.target;
-    const { required, input, form, index } = this.props;
-    const { fields } = form.state;
-    const { type, name } = input;
+    const {value} = e.target;
+    const {required, input, form, index} = this.props;
+    const {fields} = form.state;
+    const {type, name} = input;
     let error = null;
 
     // Check if required
@@ -71,15 +82,15 @@ class Field extends Component {
     // Check type validation
     const isValid = validate(value, type);
     if (!error && !isValid) {
-      error = `Please enter a valid ${name}.`
+      error = `Please enter a valid ${name}.`;
     }
 
     // Update field state with error
-    this.setState({ error });
+    this.setState({error});
 
     // Update form state with error
     fields[index].error = error;
-    form.setState({ fields });
+    form.setState({fields});
   }
 
   updateValue() {
@@ -89,15 +100,17 @@ class Field extends Component {
   }
 
   setValue(value) {
-    const { form, index, onChange } = this.props;
-    const { fields } = form.state;
+    const {form, index, onChange} = this.props;
+    const {fields} = form.state;
 
     // Update form state with value
     fields[index].value = value;
-    form.setState({ fields });
-    this.setState({ value });
+    form.setState({fields});
+    this.setState({value});
 
-    if (onChange) onChange(value);
+    if (onChange) {
+      onChange(value);
+    }
   }
 
   componentDidMount() {
@@ -109,23 +122,23 @@ class Field extends Component {
   }
 
   render() {
-    const { grid, input, form, onClick } = this.props;
-    const { error } = this.state;
+    const {grid, input, form, onClick} = this.props;
+    const {error} = this.state;
     let markup = null;
 
     if (input.type !== 'hidden') {
 
       markup = (
         <fieldset className={grid}>
-          { input.label ? <label>{input.label}</label> : null }
-          <Input {...input}
+          {input.label ? <label>{input.label}</label> : null}
+          <Input
+            {...input}
             form={form}
             value={this.state.value}
             onFocus={this.focus}
             onBlur={this.blur}
             onChange={this.onChange}
-            onClick={onClick} />
-          {error ? <p className="error">{error}</p> : null}
+            onClick={onClick}/> {error ? <p className="error">{error}</p> : null}
         </fieldset>
       );
     }

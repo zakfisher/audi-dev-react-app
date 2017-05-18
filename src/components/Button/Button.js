@@ -10,15 +10,19 @@ const ICONS = {
   plus: plusSVG
 };
 
-const Button = ({ name, disabled, text, icon, onClick, children }) => {
+const Button = ({
+  name,
+  disabled,
+  text,
+  icon,
+  onClick,
+  children
+}) => {
   let className = 'Button';
   className += name ? ` ${name}` : '';
   className += icon ? ' icon' : '';
   return (
-    <button
-      className={className}
-      disabled={disabled}
-      onClick={onClick}>
+    <button className={className} disabled={disabled} onClick={onClick}>
       {icon ? <SVG file={ICONS[icon]} name={`${icon}SVG`}/> : null}
       {text}
       {children}

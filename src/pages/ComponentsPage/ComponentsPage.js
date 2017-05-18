@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Loader from '../../components/Loader/Loader';
 import './ComponentsPage.sass';
 import COMPONENTS from '../../app/components';
@@ -8,9 +8,13 @@ import ComponentDocsList from '../../components/ComponentDocsList/ComponentDocsL
 
 class ComponentsPage extends Component {
   redirect() {
-    const { dataReady, user, history } = this.props;
-    if (!dataReady) return;
-    if (!user) history.push('/login');
+    const {dataReady, user, history} = this.props;
+    if (!dataReady) {
+      return;
+    }
+    if (!user) {
+      history.push('/login');
+    }
   }
 
   componentDidMount() {
@@ -22,27 +26,29 @@ class ComponentsPage extends Component {
   }
 
   render() {
-    let markup = <Loader />;
+    let markup = <Loader/>;
 
     if (this.props.user) {
       markup = (
         <main className="ComponentsPage">
-            <Sidebar>
-              <div className='fixed-search'>
-                <div>
-                  <p>Search by component</p>
-                  <Searchbar {...this.props} />
-                </div>
+          <Sidebar>
+            <div className='fixed-search'>
+              <div>
+                <p>Search by component</p>
+                <Searchbar {...this.props}/>
               </div>
-              <ul>
-                {Object.keys(COMPONENTS).map((componentId, i) => (
+            </div>
+            <ul>
+              {Object
+                .keys(COMPONENTS)
+                .map((componentId, i) => (
                   <li key={i}>
                     <a href={`#${componentId}`}>{componentId}</a>
                   </li>
                 ))}
-              </ul>
-            </Sidebar>
-            <ComponentDocsList />
+            </ul>
+          </Sidebar>
+          <ComponentDocsList/>
         </main>
       );
     }

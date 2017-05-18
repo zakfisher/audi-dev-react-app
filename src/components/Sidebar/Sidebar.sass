@@ -6,7 +6,9 @@
   width: 100%
   overflow: scroll
   position: relative
-
+  transition: all .35s ease
+  &.hidden
+    transform: translateX(-$sidebar-width)
   li
     font-size: 1.5rem
 

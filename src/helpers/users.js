@@ -10,9 +10,7 @@ const setUsers = users => {
   localStorage.setItem('users', JSON.stringify(users));
 
   // Set users in redux
-  store.dispatch(
-    actions.setUsers(users)
-  );
+  store.dispatch(actions.setUsers(users));
 };
 
 const Users = {};
@@ -31,22 +29,24 @@ Users.sync = callback => {
   const cache = JSON.parse(localStorage.getItem('users'));
   if (cache) {
     setUsers(cache);
-    if (callback) callback(cache);
+    if (callback) {
+      callback(cache);
+    }
   }
 
   // Sync with firebase
   ref = Firebase.on('users', snapshot => {
     const users = snapshot.val();
     setUsers(users);
-    if (callback) callback(users);
+    if (callback) {
+      callback(users);
+    }
   });
 };
 
 Users.cancel = () => {
   Firebase.off(ref, setUsers);
-  store.dispatch(
-    actions.setUsers({})
-  );
+  store.dispatch(actions.setUsers({}));
 };
 
 export default Users;
