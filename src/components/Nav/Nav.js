@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import User from '../../helpers/user';
-import { getPreviewHiddenString } from '../../helpers/preview';
+import {getPreviewHiddenString} from '../../helpers/preview';
 import SVG from '../SVG/SVG';
 import audiRingsSVG from '../../svg/audi-rings.svg';
 import caretSVG from '../../svg/caret.svg';
@@ -10,7 +10,7 @@ import './Nav.sass';
 
 const getLinkClass = (url, segment) => url.indexOf(segment) > -1 ? 'active' : '';
 
-const Nav = ({ user, location }) => {
+const Nav = ({user, location}) => {
   const url = location.pathname;
   let markup = null;
 
@@ -26,10 +26,10 @@ const Nav = ({ user, location }) => {
           <h1>{SITE_NAME}</h1>
           <div className="user">
             <p>{user.displayName}</p>
-            <img src={user.photoURL} alt="" />
+            <img src={user.photoURL} alt=""/>
           </div>
           <div className="dropdown">
-            <SVG file={caretSVG} name="caretSVG" />
+            <SVG file={caretSVG} name="caretSVG"/>
             <div className="menu">
               <Link to="#" onClick={User.logOut}>Log Out</Link>
             </div>

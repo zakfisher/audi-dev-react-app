@@ -1,9 +1,6 @@
 import actions from '../actions';
 
-const {
-  CLEAR_FILE_UPLOAD,
-  COMPLETE_FILE_UPLOAD
-} = actions;
+const {CLEAR_FILE_UPLOAD, COMPLETE_FILE_UPLOAD} = actions;
 
 /*
  * Reducers
@@ -12,13 +9,13 @@ const {
 export function downloadURL(state = null, action) {
   switch (action.type) {
 
-  case CLEAR_FILE_UPLOAD:
-    return null;
+    case CLEAR_FILE_UPLOAD:
+      return null;
 
-  case COMPLETE_FILE_UPLOAD:
-    return action.downloadURL;
+    case COMPLETE_FILE_UPLOAD:
+      return action.downloadURL;
 
-  default:
-    return state;
+    default:
+      return state;
   }
 }

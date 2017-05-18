@@ -2,7 +2,7 @@ import * as dataActions from './data';
 import * as fileActions from './file';
 import * as noteActions from './note';
 import * as userActions from './user';
-import * as previewActions  from './preview';
+import * as previewActions from './preview';
 
 /**
   App Actions

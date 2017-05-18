@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './GuideNoteItem.sass';
 
-const GuideNoteItem = ({ dataReady, noteId, notes, active }) => {
-  if (!dataReady) return null;
+const GuideNoteItem = ({dataReady, noteId, notes, active}) => {
+  if (!dataReady) {
+    return null;
+  }
   const note = notes[noteId];
   const activeClass = active ? 'active' : '';
 

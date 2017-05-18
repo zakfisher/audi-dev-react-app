@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Rx from 'rx-dom';
 import sha1 from 'sha1';
 import Loader from '../Loader/Loader';
@@ -25,22 +25,30 @@ class Form extends Component {
       errorMsg: ''
     };
 
-    this.submit = this.submit.bind(this);
-    this.onXhrSuccess = this.onXhrSuccess.bind(this);
-    this.onXhrError = this.onXhrError.bind(this);
+    this.submit = this
+      .submit
+      .bind(this);
+    this.onXhrSuccess = this
+      .onXhrSuccess
+      .bind(this);
+    this.onXhrError = this
+      .onXhrError
+      .bind(this);
   }
 
   submit(e) {
     e.preventDefault();
     let error = null;
     let POST = {};
-    const { fields, encrypt, onSubmit } = this.state;
+    const {fields, encrypt, onSubmit} = this.state;
 
     // Check for errors and set POST values
     fields.forEach(field => {
-      const { input, required, value } = field;
-      const { name } = input;
-      if (error) return;
+      const {input, required, value} = field;
+      const {name} = input;
+      if (error) {
+        return;
+      }
       if (field.error) {
         error = 'Please fix form errors.';
         return;
@@ -55,10 +63,12 @@ class Form extends Component {
     });
 
     // Display error
-    this.setState({ error });
+    this.setState({error});
 
     // Don't submit if error
-    if (error) return;
+    if (error) {
+      return;
+    }
 
     // Issue xhr if no custom submission handler
     onSubmit ? onSubmit(POST) : this.issueXHR(POST);
@@ -66,48 +76,56 @@ class Form extends Component {
 
   issueXHR(POST) {
     // Show loading
-    this.setState({ loading: true });
+    this.setState({loading: true});
 
     // Disable form fields
     this.disableFields();
 
     // Issue XHR
-    const { url } = this.state;
+    const {url} = this.state;
     const body = JSON.stringify(POST);
-    Rx.DOM.post({ url, body }).subscribe(
-      this.onXhrSuccess,
-      this.onXhrError
-    );
+    Rx
+      .DOM
+      .post({url, body})
+      .subscribe(this.onXhrSuccess, this.onXhrError);
   }
 
   onXhrSuccess(xhr) {
-    const { successMsg, onSuccess } = this.state;
+    const {successMsg, onSuccess} = this.state;
     this.setState({
       loading: false,
-      success: JSON.parse(xhr.response).success || successMsg
+      success: JSON
+        .parse(xhr.response)
+        .success || successMsg
     });
     this.enableFields();
-    if (onSuccess) onSuccess(xhr);
+    if (onSuccess) {
+      onSuccess(xhr);
+    }
   }
 
   onXhrError(err) {
-    const { errorMsg, onError } = this.state;
+    const {errorMsg, onError} = this.state;
     this.setState({
       loading: false,
-      error: JSON.parse(err.xhr.responseText).error || errorMsg
+      error: JSON
+        .parse(err.xhr.responseText)
+        .error || errorMsg
     });
     this.enableFields();
-    if (onError) onError(err);
+    if (onError) {
+      onError(err);
+    }
   }
 
   toggleFields(disable) {
-    const { fields } = this.state;
+    const {fields} = this.state;
     const newFields = fields.map(field => {
       const newField = field;
       newField.input.disabled = disable;
       return newField;
     });
-    this.setState({ fields: newFields });
+    this.setState({fields: newFields});
   }
 
   disableFields() {
@@ -121,9 +139,11 @@ class Form extends Component {
   updateFields(fields = [], force = false) {
     if (!force) {
       // Escape if already set or not ready yet
-      if (this.fieldsSet || !fields.length) return;
+      if (this.fieldsSet || !fields.length) {
+        return;
+      }
     }
-    this.setState({ fields });
+    this.setState({fields});
     this.fieldsSet = true;
   }
 
@@ -136,14 +156,14 @@ class Form extends Component {
   }
 
   render() {
-    const { loading, name, fields, success, error } = this.state;
-    if (!fields) return null;
+    const {loading, name, fields, success, error} = this.state;
+    if (!fields) {
+      return null;
+    }
     return (
       <form className={`${name} row`} action="#" method="POST" onSubmit={this.submit}>
-        {loading ? <Loader /> : null }
-        {fields.map((field, i) => (
-          <Field {...field} key={i} form={this} index={i} />
-        ))}
+        {loading ? <Loader/> : null}
+        {fields.map((field, i) => (<Field {...field} key={i} form={this} index={i}/>))}
         {success ? <p className="success">{success}</p> : null}
         {error ? <p className="error">{error}</p> : null}
       </form>

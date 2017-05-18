@@ -11,9 +11,13 @@ class LoginForm extends Form {
       url: endpoint('submitLoginForm'),
       fields: this.fields,
       encrypt: true,
-      onSuccess: this.onSuccess.bind(this),
-      onError: this.onError.bind(this)
-    })
+      onSuccess: this
+        .onSuccess
+        .bind(this),
+      onError: this
+        .onError
+        .bind(this)
+    });
   }
 
   get fields() {
@@ -38,10 +42,7 @@ class LoginForm extends Form {
       }
     };
 
-    return [
-      password,
-      submit
-    ];
+    return [password, submit];
   }
 
   onSuccess(xhr) {

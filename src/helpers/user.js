@@ -12,16 +12,16 @@ import Firebase from './firebase';
 */
 
 const setUser = (user, credential = null) => {
-  if (!user) return localStorage.clear();
+  if (!user) {
+    return localStorage.clear();
+  }
 
   // Set user in Redux
-  store.dispatch(
-    actions.setUser(user)
-  );
+  store.dispatch(actions.setUser(user));
 
   // Cache user token
   if (credential) {
-    const { accessToken } = credential;
+    const {accessToken} = credential;
     localStorage.setItem('user-token', accessToken);
   }
 
@@ -29,7 +29,7 @@ const setUser = (user, credential = null) => {
   localStorage.setItem('user', JSON.stringify(user));
 
   // Allow 1hr to set user from cache
-  const now = (new Date()).getTime()
+  const now = (new Date()).getTime();
   const oneHour = 1000 * 60 * 60;
   localStorage.setItem('user-cache-expiration', now + oneHour);
 };
@@ -55,32 +55,25 @@ User.logIn = () => {
     }
 
     const loginWithRedirect = () => {
-      Firebase.getGithubToken(
-        result => {
-          const { user, credential } = result;
-          setUser(user, credential);
-          resolve(user);
-        },
-        error => {
-          localStorage.setItem('login-error', error.message);
-          resolve();
-        }
-      );
+      Firebase.getGithubToken(result => {
+        const {user, credential} = result;
+        setUser(user, credential);
+        resolve(user);
+      }, error => {
+        localStorage.setItem('login-error', error.message);
+        resolve();
+      });
     };
 
     const token = localStorage.getItem('user-token');
     const loginWithToken = () => {
-      Firebase.githubLoginWithToken(
-        token,
-        user => {
-          setUser(user);
-          resolve(user);
-        },
-        error => {
-          localStorage.setItem('login-error', error.message);
-          resolve();
-        }
-      );
+      Firebase.githubLoginWithToken(token, user => {
+        setUser(user);
+        resolve(user);
+      }, error => {
+        localStorage.setItem('login-error', error.message);
+        resolve();
+      });
     };
 
     // Check for login error (from github redirect)
@@ -91,8 +84,8 @@ User.logIn = () => {
       resolve();
     }
 
-    // Set user from token (if already logged in)
-    // Otherwise set user from Github Redirect
+    // Set user from token (if already logged in) Otherwise set user from Github
+    // Redirect
     token ? loginWithToken() : loginWithRedirect();
   });
 };
@@ -105,7 +98,7 @@ User.logOut = () => {
 User.save = (users, user) => {
 
   // Scrape user object (provided by github)
-  const { uid, displayName, email, photoURL } = user;
+  const {uid, displayName, email, photoURL} = user;
 
   // If this is a first-time login, create a record for this user
   let newUserData = {
@@ -119,7 +112,10 @@ User.save = (users, user) => {
   // If a user already exists, update the fields from github we care about
   const existingUser = users[uid];
   if (existingUser) {
-    newUserData = { ...existingUser, ...newUserData };
+    newUserData = {
+      ...existingUser,
+      ...newUserData
+    };
   }
 
   // Save user in firebase

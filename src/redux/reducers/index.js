@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import * as dataReducers from './data';
 import * as fileReducers from './file';
 import * as noteReducers from './note';
 import * as userReducers from './user';
-import * as previewReducers  from './preview';
+import * as previewReducers from './preview';
 
 /**
   Root Reducer
@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
   ...fileReducers,
   ...noteReducers,
   ...userReducers,
-  ...previewReducers 
+  ...previewReducers
 });
 
 export default rootReducer;

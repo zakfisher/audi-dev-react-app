@@ -13,27 +13,17 @@ export const VALIDATE_PASSWORD = 'VALIDATE_PASSWORD';
  */
 
 export function logIn() {
-  return {
-    type: LOG_IN
-  };
+  return {type: LOG_IN};
 }
 
 export function logOut() {
-  return {
-    type: LOG_OUT
-  };
+  return {type: LOG_OUT};
 }
 
 export function setUser(user) {
-  return {
-    type: SET_USER,
-    user
-  };
+  return {type: SET_USER, user};
 }
 
 export function setUsers(users) {
-  return {
-    type: SET_USERS,
-    users
-  };
+  return {type: SET_USERS, users};
 }

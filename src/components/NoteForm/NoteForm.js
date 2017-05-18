@@ -9,32 +9,45 @@ class NoteForm extends Form {
     this.setState({
       name: 'NoteForm',
       fields: this.fields,
-      onSubmit: this.onSubmit.bind(this),
+      onSubmit: this
+        .onSubmit
+        .bind(this),
       successMsg: 'Note saved.',
       errorMsg: 'Unable to save note.'
     });
   }
 
   componentDidUpdate() {
-    const { downloadURL } = this.props;
+    const {downloadURL} = this.props;
 
     // Update fields
-    if (downloadURL) this.appendImageMarkup();
-    else this.updateFields(this.fields);
+    if (downloadURL) {
+      this.appendImageMarkup();
+    } else {
+      this.updateFields(this.fields);
+    }
   }
 
   updatePreviewTitle(title) {
-    this.props.editor.setState({ title });
+    this
+      .props
+      .editor
+      .setState({title});
   }
 
   updatePreviewContent(content) {
-    this.props.editor.setState({ content });
+    this
+      .props
+      .editor
+      .setState({content});
   }
 
   get fields() {
-    if (!this.note) return [];
+    if (!this.note) {
+      return [];
+    }
 
-    const { user } = this.props;
+    const {user} = this.props;
 
     const noteId = {
       value: this.note.noteId,
@@ -70,7 +83,9 @@ class NoteForm extends Form {
         placeholder: 'Note Title',
         maxLength: 100
       },
-      onChange: this.updatePreviewTitle.bind(this)
+      onChange: this
+        .updatePreviewTitle
+        .bind(this)
     };
 
     const content = {
@@ -82,7 +97,9 @@ class NoteForm extends Form {
         type: 'textarea',
         placeholder: 'Something incredible...'
       },
-      onChange: this.updatePreviewContent.bind(this)
+      onChange: this
+        .updatePreviewContent
+        .bind(this)
     };
 
     const upload = {
@@ -117,7 +134,10 @@ class NoteForm extends Form {
       },
       onClick: form => {
         Note.delete(this.note);
-        this.props.history.push('/notes');
+        this
+          .props
+          .history
+          .push('/notes');
       }
     };
 
@@ -132,16 +152,20 @@ class NoteForm extends Form {
       cancel
     ];
 
-    if (this.editNote) fields.push(deleteLink);
+    if (this.editNote) {
+      fields.push(deleteLink);
+    }
 
     return fields;
   }
 
   get note() {
-    if (!this.props) return null;
+    if (!this.props) {
+      return null;
+    }
 
-    const { user, notes, match } = this.props;
-    const { noteId, edit } = match.params;
+    const {user, notes, match} = this.props;
+    const {noteId, edit} = match.params;
 
     let note = null;
     this.addNote = noteId === 'add';
@@ -170,20 +194,21 @@ class NoteForm extends Form {
   }
 
   appendImageMarkup() {
-    const { downloadURL } = this.props;
+    const {downloadURL} = this.props;
 
-    const fields = this.state.fields.map(field => {
-      if (field.input.name === 'content') {
-        field.value += `\n\n![alt text](${downloadURL})`;
-      }
-      return field;
-    });
+    const fields = this
+      .state
+      .fields
+      .map(field => {
+        if (field.input.name === 'content') {
+          field.value += `\n\n![alt text](${downloadURL})`;
+        }
+        return field;
+      });
 
     this.updateFields(fields, true);
 
-    store.dispatch(
-      actions.clearFileUpload()
-    );
+    store.dispatch(actions.clearFileUpload());
   }
 
   onSubmit(POST) {

@@ -4,7 +4,9 @@ import React from 'react';
 // Live example to be shown in components#Text
 let example = (
     <div>
-        <p>The text below are examples of <span className="pre">Text</span> components to be used in AEM.</p>
+        <p>The text below are examples of
+            <span className="pre">Text</span>
+            components to be used in AEM.</p>
         <Text size="small" text="Small Text"/>
         <Text size="medium" text="Medium Text"/>
         <Text size="large" text="Large Text"/>
@@ -40,14 +42,13 @@ let props = {
     }
 }
 
-let documentation = (
-`
+let documentation = (`
     The Text component takes text and outputs a div that contains the text. 
-`
-)
+`)
 
 let TextDocs = {
-    description: "This is the correct component to use across the application where you need to drop in an ordinary block of text",
+    description: "This is the correct component to use across the application where you need to dr" +
+            "op in an ordinary block of text",
     example: example,
     props: props,
     documentation: documentation

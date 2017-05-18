@@ -9,7 +9,5 @@ export const DATA_READY = 'DATA_READY';
  */
 
 export function dataReady() {
-  return {
-    type: DATA_READY
-  };
+  return {type: DATA_READY};
 }

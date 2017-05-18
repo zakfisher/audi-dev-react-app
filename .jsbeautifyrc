@@ -1,0 +1,7 @@
+{
+  "react.beautify.onSave": true,
+  "brace_style": "expand",
+  "bracepadding": false,
+  "ternaryline": true,
+  "correct": true
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Note from '../../helpers/note';
 
-const NoteLink = ({ note, action, children }) => {
+const NoteLink = ({note, action, children}) => {
   const className = `NoteLink ${action}`;
   let onClick = null;
   let to = null;

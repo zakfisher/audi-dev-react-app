@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Loader from '../../components/Loader/Loader';
 // import Button from '../../components/Button/Button';
 import GuideNotesList from '../../components/GuideNotesList/GuideNotesList';
@@ -10,9 +10,13 @@ import './GuidePage.sass';
 
 class GuidePage extends Component {
   redirect() {
-    const { dataReady, user, history } = this.props;
-    if (!dataReady) return;
-    if (!user) history.push('/login');
+    const {dataReady, user, history} = this.props;
+    if (!dataReady) {
+      return;
+    }
+    if (!user) {
+      history.push('/login');
+    }
   }
 
   componentDidMount() {
@@ -24,8 +28,8 @@ class GuidePage extends Component {
   }
 
   render() {
-    const { user } = this.props;
-    let markup = <Loader />;
+    const {user} = this.props;
+    let markup = <Loader/>;
 
     if (user) {
       markup = (
@@ -35,14 +39,14 @@ class GuidePage extends Component {
             <div className='fixed-search'>
               <div>
                 <p>Search by title, content, or author.</p>
-                <Searchbar {...this.props} />
+                <Searchbar {...this.props}/>
               </div>
             </div>
-            <GuideNotesList {...this.props} />
+            <GuideNotesList {...this.props}/>
           </Sidebar>
 
           <MainContent>
-            <NoteView {...this.props} />
+            <NoteView {...this.props}/>
           </MainContent>
 
         </main>

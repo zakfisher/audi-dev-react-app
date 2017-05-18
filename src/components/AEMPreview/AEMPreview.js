@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOMServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import './AEMPreview.sass';
 import COMPONENTS from '../../app/components';
 import DEMOS from '../../app/demos';
-import { togglePreview, checkPreview } from '../../helpers/preview';
+import {togglePreview, checkPreview} from '../../helpers/preview';
 
-const IFRAME_COMPONENTS = { ...COMPONENTS, ...DEMOS };
+const IFRAME_COMPONENTS = {
+  ...COMPONENTS,
+  ...DEMOS
+};
 
 class AEMPreview extends Component {
 
@@ -16,7 +19,7 @@ class AEMPreview extends Component {
   };
 
   get html() {
-    const { componentId } = this.props;
+    const {componentId} = this.props;
     const head = `
       <head>
         <meta charset="utf-8">
@@ -51,29 +54,33 @@ class AEMPreview extends Component {
   }
 
   get component() {
-    const { componentId } = this.props;
+    const {componentId} = this.props;
     return IFRAME_COMPONENTS[componentId] || null;
   }
 
   get serverComponent() {
-    return ReactDOMServer.renderToStaticMarkup(
-      this.component ? <this.component /> : <h3>Component not found.</h3>
-    );
+    return ReactDOMServer.renderToStaticMarkup(this.component ? <this.component/> : <h3>Component not found.</h3>);
   }
 
-  checkActive (){
-    return checkPreview() ? " active" : ""
+  checkActive() {
+    return checkPreview() ? " active" : "";
   }
 
   render() {
-    const { name } = this.props;
+    const {name} = this.props;
     let active = this.checkActive();
     return (
       <main className={`${name} AEMPreview` + active}>
-        <div onClick={()=>{togglePreview()} } className={'control-bar' + active}>
+        <div
+          onClick={() => {
+          togglePreview();
+        }}
+          className={'control-bar' + active}>
           {'AEM Preview'}
         </div>
-        <iframe className={active} src={`data:text/html;charset=utf-8,${encodeURI(this.html)}`} />
+        <iframe
+          className={active}
+          src={`data:text/html;charset=utf-8,${encodeURI(this.html)}`}/>
       </main>
     );
   }
