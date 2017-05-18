@@ -1,15 +1,20 @@
 import actions from '../actions';
 
 const {
-    SET_PREVIEW
+  ENTER_PREVIEW_MODE,
+  EXIT_PREVIEW_MODE
 } = actions;
 
-export function preview(state = false, action) {
-    switch (action.type) {
-        case SET_PREVIEW:
-            return action.preview;
+export function previewMode(state = false, action) {
+  switch (action.type) {
 
-        default:
-            return state;
-    }
+  case ENTER_PREVIEW_MODE:
+    return true;
+
+  case EXIT_PREVIEW_MODE:
+    return false;
+
+  default:
+    return state;
+  }
 }

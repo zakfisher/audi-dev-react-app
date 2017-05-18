@@ -18,6 +18,7 @@
 =columns($bp)
   $i: 1
   $prefix: nth($bp, 1)
+
   @while $i <= $column-count
     &.#{$prefix}-#{$i}
       width: $column-width * $i

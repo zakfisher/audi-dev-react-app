@@ -1,61 +1,63 @@
 @import '../../styles/core'
 
 section
-    hr
-        border-bottom: 0.1rem solid black
-    
-    h2
-        font-size: 2.5rem
-        line-height: 4rem
-        font-weight: 400
+  hr
+    border-bottom: 0.5rem solid $light-gray
+    margin: 1rem 0 1.5rem
 
-    h3
-        font-size: 2rem
-        line-height: 4rem
-        font-weight: 400
+  h2
+    font-size: 2.5rem
+    line-height: 4rem
+    +bold
 
-    table
-        font-size: 1.5rem
-        font-weight: 400
-        display: table
-        flex-direction: column
-        width: 100%
+  h3
+    font-size: 2rem
+    line-height: 4rem
+    +bold
 
-    thead
-        width: 100%
+  table
+    font-size: 1.5rem
+    +bold
+    display: table
+    flex-direction: column
+    width: 100%
 
-    tr
-        display: flex
-        flex-direction: row
-        justify-content: space-between
-        border-bottom: solid 0.1rem $light-gray
-        margin-bottom: .5rem
-    th, td
-        width: 25%
-        text-align: left
-        padding: 0.2rem
-    
-    .blue
-        color: $blue-text
-    .red
-        color: $red-text
+  thead
+    width: 100%
 
-    .component-container
-        background-color: $light-gray
-        margin-top: 2rem
-        padding: 1.5rem
+  tr
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    border-bottom: solid 0.1rem $light-gray
+    margin-bottom: .5rem
 
-    .component-display
-        background-color: white
-        padding: 1.5rem
+  th, td
+    width: 25%
+    text-align: left
+    padding: 0.2rem
 
-    p 
-        font-size: 1.4rem
-        margin: .5rem 0
+  .blue
+    color: $blue-text
 
-    .pre
-        display: inline
-        background-color: $light-gray
+  .red
+    color: $red-text
 
-    section
-        margin-bottom: 2rem
+  .component-container
+    background-color: $light-gray
+    padding: 1.5rem
+
+  .component-display
+    background-color: white
+    padding: 1.5rem
+
+  p
+    font-size: 1.4rem
+    margin: .5rem 0
+
+  .pre
+    display: inline
+    background-color: $light-gray
+
+  section
+    margin-bottom: 2rem

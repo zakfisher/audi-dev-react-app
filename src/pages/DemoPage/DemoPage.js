@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
-import AEMPreview from '../../components/AEMPreview/AEMPreview';
+import Preview from '../../components/Preview/Preview';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import MainContent from '../../components/MainContent/MainContent';
 import './DemoPage.sass';
 
 class DemoPage extends Component {
@@ -21,12 +22,17 @@ class DemoPage extends Component {
 
   render() {
     let markup = <Loader />;
+
     if (this.props.user) {
       const { demoId } = this.props.match.params;
-      markup = <div className="demo-page">
-          <Sidebar/>
-          <AEMPreview name='DemoPage' componentId={demoId} />;
+      markup = (
+        <div className="DemoPage">
+          <Sidebar />
+          <MainContent>
+            <Preview componentId={demoId} />;
+          </MainContent>
         </div>
+      );
     }
 
     return markup;

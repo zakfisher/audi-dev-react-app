@@ -3,6 +3,7 @@ import Loader from '../../components/Loader/Loader';
 import './ComponentsPage.sass';
 import COMPONENTS from '../../app/components';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import MainContent from '../../components/MainContent/MainContent';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import ComponentDocsList from '../../components/ComponentDocsList/ComponentDocsList';
 
@@ -42,7 +43,9 @@ class ComponentsPage extends Component {
                 ))}
               </ul>
             </Sidebar>
-            <ComponentDocsList />
+            <MainContent>
+              <ComponentDocsList />
+            </MainContent>
         </main>
       );
     }

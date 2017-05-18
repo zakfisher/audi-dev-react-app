@@ -1,8 +1,22 @@
-export const SET_PREVIEW = 'SET_PREVIEW';
+/*
+ * action types
+ */
 
-export function setPreview(preview) {
+export const ENTER_PREVIEW_MODE = 'ENTER_PREVIEW_MODE';
+export const EXIT_PREVIEW_MODE = 'EXIT_PREVIEW_MODE';
+
+/*
+ * action creators
+ */
+
+export function enterPreviewMode() {
   return {
-    type: SET_PREVIEW,
-    preview
+    type: ENTER_PREVIEW_MODE
+  };
+}
+
+export function exitPreviewMode() {
+  return {
+    type: EXIT_PREVIEW_MODE
   };
 }

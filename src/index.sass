@@ -1,37 +1,6 @@
 @import 'styles/core'
 @import 'styles/grid'
-
-*
-  appearance: none
-  backface-visibility: none
-  box-sizing: border-box
-  border: none
-  outline: none
-  margin: 0
-  padding: 0
-  position: relative
-  text-decoration: none
-  color: $black
-  +default-font
-
-::selection
-  background: $primary-color
-  color: $black
-
-html
-  font-size: 62.5%
-
-body
-  background: $light-gray
-
-img
-  width: 100%
-
-ul
-  margin-left: 2rem
-
-ol
-  margin-left: 1.5rem
+@import 'styles/reset'
 
 .App
   display: flex
