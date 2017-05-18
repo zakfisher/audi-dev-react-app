@@ -47,6 +47,7 @@ class ComponentDoc extends Component {
             {demos}
           </div>
         </div>
+        <br/>
 
         <h3>{"Properties"}</h3>
         <table>

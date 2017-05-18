@@ -2,6 +2,8 @@
 
 .MainContent
   position: relative
+  +breakpoint(tab)
+    min-height: calc(100vh - #{$nav-height})
 
   .actions
     position: fixed

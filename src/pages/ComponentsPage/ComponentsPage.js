@@ -28,24 +28,24 @@ class ComponentsPage extends Component {
     if (this.props.user) {
       markup = (
         <main className="ComponentsPage">
-            <Sidebar>
-              <div className='fixed-search'>
-                <div>
-                  <p>Search by component</p>
-                  <Searchbar {...this.props} />
-                </div>
+          <Sidebar>
+            <div className='fixed-search'>
+              <div>
+                <p>Search by component</p>
+                <Searchbar {...this.props} />
               </div>
-              <ul>
-                {Object.keys(COMPONENTS).map((componentId, i) => (
-                  <li key={i}>
-                    <a href={`#${componentId}`}>{componentId}</a>
-                  </li>
-                ))}
-              </ul>
-            </Sidebar>
-            <MainContent>
-              <ComponentDocsList />
-            </MainContent>
+            </div>
+            <ul>
+              {Object.keys(COMPONENTS).map((componentId, i) => (
+                <li key={i}>
+                  <a href={`#${componentId}`}>{componentId}</a>
+                </li>
+              ))}
+            </ul>
+          </Sidebar>
+          <MainContent>
+            <ComponentDocsList />
+          </MainContent>
         </main>
       );
     }
